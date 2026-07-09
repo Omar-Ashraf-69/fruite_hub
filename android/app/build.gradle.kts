@@ -13,7 +13,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
+    buildFeatures {
+        resValues = true
+        buildConfig = true
+    }
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.fruit_hub"
@@ -30,6 +33,24 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+    flavorDimensions += "default"
+    productFlavors {
+        create("dev") {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "FruitHUB dev")        
+        }
+        create("prod") {
+            dimension = "default"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "FruitHUB")
         }
     }
 }

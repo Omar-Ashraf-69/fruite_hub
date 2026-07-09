@@ -5,19 +5,23 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/routing/app_routes.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_text_styles.dart';
-import 'package:fruit_hub/features/onboarding/data/const/on_boarding_data.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class DotsAndGetStartedButton extends StatelessWidget {
   final ValueNotifier<int> currentPage;
 
-  const DotsAndGetStartedButton({super.key, required this.currentPage});
-
+  const DotsAndGetStartedButton({
+    super.key,
+    required this.currentPage,
+    required this.pages,
+  });
+  final int pages;
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        OnBoardingIndicator(currentPage: currentPage, pageCount: pages.length),
+        OnBoardingIndicator(currentPage: currentPage, pageCount: pages),
         verticalSpace(24),
         GetStartedButtonWidget(currentPage: currentPage),
       ],
@@ -50,8 +54,12 @@ class GetStartedButtonWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(24.r),
                       ),
                     ),
-                    onPressed: () => context.pushReplacementNamed(AppRoutes.login),
-                    child: Text("ابدأ التسوق", style: TextStyles.bold16),
+                    onPressed: () =>
+                        context.pushReplacementNamed(AppRoutes.login),
+                    child: Text(
+                      S.of(context).start_shopping,
+                      style: TextStyles.bold16,
+                    ),
                   ),
                 )
               : const SizedBox(key: ValueKey('empty')),
@@ -87,7 +95,9 @@ class OnBoardingIndicator extends StatelessWidget {
               height: 10.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: index <= page ? AppColors.primaryColor : Colors.grey.shade300,
+                color: index <= page
+                    ? AppColors.primaryColor
+                    : Colors.grey.shade300,
               ),
             ),
           ),

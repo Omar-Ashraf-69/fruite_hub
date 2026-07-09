@@ -14,15 +14,16 @@ class OnBoardingPageViewBuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final onboardingPages = getOnBoardingPages(context);
     return PageView.builder(
       controller: _pageController,
       onPageChanged: (value) => _currentPage.value = value,
-      itemCount: pages.length,
+      itemCount: onboardingPages.length,
       itemBuilder: (context, index) => OnBoardingPageWidget(
         key: ValueKey(index),
         currentPage: _currentPage,
         pageController: _pageController,
-        item: pages[index],
+        item: onboardingPages[index],
       ),
     );
   }

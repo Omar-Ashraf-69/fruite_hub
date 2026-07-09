@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_text_styles.dart';
 import 'package:fruit_hub/features/onboarding/data/models/onboarding_page_data_model.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class OnBoardingPageWidget extends StatelessWidget {
   final ValueNotifier<int> currentPage;
@@ -56,16 +57,17 @@ class OnBoardingPageWidget extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-          if (item.showSkip) _buildSkipButton(),
+          if (item.showSkip) _buildSkipButton(context),
         ],
       ),
     );
   }
 
-  Widget _buildSkipButton() {
-    return Positioned(
+  Widget _buildSkipButton(BuildContext context) {
+    return Positioned.directional(
       top: 24.h,
-      right: 24.w,
+      start: 24.w,
+      textDirection: Directionality.of(context),
       child: ValueListenableBuilder<int>(
         valueListenable: currentPage,
         builder: (context, page, _) {
@@ -81,7 +83,7 @@ class OnBoardingPageWidget extends StatelessWidget {
                 );
               },
               child: Text(
-                "تخط",
+                S.of(context).skip,
                 style: TextStyles.regular13.copyWith(
                   color: AppColors.lightGray,
                 ),

@@ -1,3 +1,9 @@
 {
-  "title": "Hello"
+  "title": "Hello",
+  "skip": "Skip",
+  "welcome_to": "Welcome to",
+  "search_and_shop":"Search and Shop",
+  "start_shopping": "Start Shopping",
+  "on_boarding_title_1":"Discover a unique shopping experience with FruitHUB. Explore our wide selection of premium fresh fruits and get the best offers and high quality.",
+  "on_boarding_title_2":"We offer you the finest carefully selected fruits. View details, photos, and reviews to ensure you choose the perfect fruit."
 }

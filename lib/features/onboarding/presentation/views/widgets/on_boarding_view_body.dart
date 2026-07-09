@@ -38,7 +38,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         ),
         Expanded(
           flex: 1,
-          child: DotsAndGetStartedButton(currentPage: _currentPage),
+          child: DotsAndGetStartedButton(currentPage: _currentPage,pages: 2,),
         ),
         verticalSpace(24),
       ],

@@ -16,3 +16,32 @@ extension LocaleExt on BuildContext {
 
   bool get isEnglish => locale.languageCode == 'en';
 }
+
+
+extension MeidaQueryExt on BuildContext {
+  double get height => MediaQuery.of(this).size.height;
+  double get width => MediaQuery.of(this).size.width;
+}
+
+
+extension NavigatorExtension on BuildContext {
+  void pop() => Navigator.of(this).pop();
+ //void pop<T extends Object?>([T? result]) =>
+   // Navigator.of(this).pop(result);
+  void pushNamed(String routeName, {Object? arguments}) =>
+      Navigator.of(this).pushNamed(routeName, arguments: arguments);
+  void pushReplacementNamed(String routeName, {Object? arguments}) =>
+      Navigator.of(this).pushReplacementNamed(routeName, arguments: arguments);
+  void pushNamedAndRemoveUntil(
+    String routeName, {
+    Object? arguments,
+    required RoutePredicate predicate,
+  }) => Navigator.of(
+    this,
+  ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
+
+  void pushNamedAndRemoveAll(String routeName, {Object? arguments}) =>
+      Navigator.of(
+        this,
+      ).pushNamedAndRemoveUntil(routeName, (_) => false, arguments: arguments);
+}

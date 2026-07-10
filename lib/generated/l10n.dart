@@ -59,6 +59,56 @@ class S {
   String get title {
     return Intl.message('Hello', name: 'title', desc: '', args: []);
   }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Welcome to`
+  String get welcome_to {
+    return Intl.message('Welcome to', name: 'welcome_to', desc: '', args: []);
+  }
+
+  /// `Search and Shop`
+  String get search_and_shop {
+    return Intl.message(
+      'Search and Shop',
+      name: 'search_and_shop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Shopping`
+  String get start_shopping {
+    return Intl.message(
+      'Start Shopping',
+      name: 'start_shopping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover a unique shopping experience with FruitHUB. Explore our wide selection of premium fresh fruits and get the best offers and high quality.`
+  String get on_boarding_title_1 {
+    return Intl.message(
+      'Discover a unique shopping experience with FruitHUB. Explore our wide selection of premium fresh fruits and get the best offers and high quality.',
+      name: 'on_boarding_title_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We offer you the finest carefully selected fruits. View details, photos, and reviews to ensure you choose the perfect fruit.`
+  String get on_boarding_title_2 {
+    return Intl.message(
+      'We offer you the finest carefully selected fruits. View details, photos, and reviews to ensure you choose the perfect fruit.',
+      name: 'on_boarding_title_2',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

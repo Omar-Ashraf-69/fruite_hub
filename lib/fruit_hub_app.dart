@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:fruit_hub/core/helpers/extenstions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/localization/locale_provider.dart';
+import 'package:fruit_hub/core/routing/app_router.dart';
+import 'package:fruit_hub/core/routing/app_routes.dart';
+import 'package:fruit_hub/core/theme/theme.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
@@ -10,41 +13,25 @@ class FruitHubApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fruit Hub',
-      locale: Provider.of<LocaleProvider>(context).locale,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      home: const HomeView(),
-    );
-  }
-}
-
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(S.of(context).title)),
-      body: Center(
-        child: TextButton(
-          onPressed: () {
-            final provider = context.readLocaleProvider;
-
-            if (provider.locale?.languageCode == 'en') {
-              provider.changeLanguage('ar');
-            } else {
-              provider.changeLanguage('en');
-            }
-          },
-          child: Text("Hello"),
-        ),
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      
+      child: MaterialApp(
+        title: 'Fruit Hub',
+        theme: AppThemes.lightTheme(),
+        themeMode: ThemeMode.light,
+        locale: Provider.of<LocaleProvider>(context).locale,
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        debugShowCheckedModeBanner: false,
+        initialRoute: AppRoutes.onBoarding,
+        onGenerateRoute: AppRouter().onGenerateRoute,
       ),
     );
   }

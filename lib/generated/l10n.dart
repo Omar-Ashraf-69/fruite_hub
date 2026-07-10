@@ -109,6 +109,91 @@ class S {
       args: [],
     );
   }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Login with Google`
+  String get login_with_google {
+    return Intl.message(
+      'Login with Google',
+      name: 'login_with_google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Facebook`
+  String get login_with_facebook {
+    return Intl.message(
+      'Login with Facebook',
+      name: 'login_with_facebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forget Password?`
+  String get forget_password {
+    return Intl.message(
+      'Forget Password?',
+      name: 'forget_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get dont_have_account {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dont_have_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Account`
+  String get create_account {
+    return Intl.message(
+      'Create Account',
+      name: 'create_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or`
+  String get or {
+    return Intl.message('Or', name: 'or', desc: '', args: []);
+  }
+
+  /// `Sign Up`
+  String get sing_up {
+    return Intl.message('Sign Up', name: 'sing_up', desc: '', args: []);
+  }
+
+  /// `Enter your password`
+  String get enter_your_password {
+    return Intl.message(
+      'Enter your password',
+      name: 'enter_your_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email address`
+  String get enter_your_email_address {
+    return Intl.message(
+      'Enter your email address',
+      name: 'enter_your_email_address',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

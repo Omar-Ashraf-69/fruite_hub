@@ -16,6 +16,7 @@ class FruitHubApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
+      
       child: MaterialApp(
         title: 'Fruit Hub',
         theme: AppThemes.lightTheme(),

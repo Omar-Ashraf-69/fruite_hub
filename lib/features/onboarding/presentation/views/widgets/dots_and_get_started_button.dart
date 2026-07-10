@@ -55,7 +55,7 @@ class GetStartedButtonWidget extends StatelessWidget {
                       ),
                     ),
                     onPressed: () =>
-                        context.pushReplacementNamed(AppRoutes.login),
+                        context.pushNamedAndRemoveAll(AppRoutes.login),
                     child: Text(
                       S.of(context).start_shopping,
                       style: TextStyles.bold16,

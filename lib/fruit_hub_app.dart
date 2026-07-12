@@ -16,7 +16,7 @@ class FruitHubApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      
+
       child: MaterialApp(
         title: 'Fruit Hub',
         theme: AppThemes.lightTheme(),
@@ -30,7 +30,7 @@ class FruitHubApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.onBoarding,
+        initialRoute: AppRoutes.signup,
         onGenerateRoute: AppRouter().onGenerateRoute,
       ),
     );

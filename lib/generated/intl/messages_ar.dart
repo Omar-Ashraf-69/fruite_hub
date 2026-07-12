@@ -22,16 +22,34 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "dont_have_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "enter_your_email_address": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني",
+    ),
+    "enter_your_password": MessageLookupByLibrary.simpleMessage("كلمة المرور "),
+    "forget_password": MessageLookupByLibrary.simpleMessage(
+      "نسيت كلمة المرور؟",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "login_with_facebook": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول باستخدام فيسبوك",
+    ),
+    "login_with_google": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول باستخدام جوجل",
+    ),
     "on_boarding_title_1": MessageLookupByLibrary.simpleMessage(
-      "اكتشف تجربة تسوق مميزة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض وأعلى جودة.",
+      "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الفاخرة واحصل على أفضل العروض وأعلى جودة.",
     ),
     "on_boarding_title_2": MessageLookupByLibrary.simpleMessage(
-      "نقدم لك أجود أنواع الفواكه المختارة بعناية. شاهد التفاصيل والصور والتقييمات لتتمكن من اختيار الفاكهة المثالية.",
+      "نقدم لك أجود أنواع الفواكه المختارة بعناية. اطّلع على التفاصيل والصور والتقييمات لتضمن اختيار الفاكهة المثالية.",
     ),
+    "or": MessageLookupByLibrary.simpleMessage("أو"),
     "search_and_shop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
+    "sing_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "start_shopping": MessageLookupByLibrary.simpleMessage("ابدأ التسوق"),
     "title": MessageLookupByLibrary.simpleMessage("مرحباً"),
-    "welcome_to": MessageLookupByLibrary.simpleMessage(" مرحباً بك في"),
+    "welcome_to": MessageLookupByLibrary.simpleMessage("مرحباً بك في "),
   };
 }

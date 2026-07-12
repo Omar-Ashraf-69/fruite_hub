@@ -194,6 +194,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter your Name`
+  String get enter_your_name {
+    return Intl.message(
+      'Enter your Name',
+      name: 'enter_your_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By creating an account, you agree to our `
+  String get by_continuing_you_agree_to_our {
+    return Intl.message(
+      'By creating an account, you agree to our ',
+      name: 'by_continuing_you_agree_to_our',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms and Conditions`
+  String get terms_and_conditions {
+    return Intl.message(
+      'Terms and Conditions',
+      name: 'terms_and_conditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get already_have_an_account {
+    return Intl.message(
+      'Already have an account?',
+      name: 'already_have_an_account',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/constants/assets.dart';
+import 'package:fruit_hub/core/helpers/extenstions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
+import 'package:fruit_hub/core/routing/app_routes.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_text_styles.dart';
+import 'package:fruit_hub/core/widgets/custom_form_field.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
 class LoginView extends StatelessWidget {
@@ -28,7 +31,7 @@ class LoginViewBody extends StatelessWidget {
           children: [
             Text(S.of(context).login, style: TextStyles.bold19),
             verticalSpace(24),
-            CustomFormField(),
+            CustomFormField(hintText: S.of(context).enter_your_email_address),
             verticalSpace(24),
             CustomPassFormField(),
             verticalSpace(20),
@@ -36,10 +39,12 @@ class LoginViewBody extends StatelessWidget {
             verticalSpace(24),
             CustomButtonWidget(title: S.of(context).login, onPressed: () {}),
             verticalSpace(24),
-            HaveAccountRowTextWidget(
+            DontHaveAccountRowTextWidget(
               title: S.of(context).dont_have_account,
               subTilte: S.of(context).sing_up,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(AppRoutes.signup);
+              },
             ),
             verticalSpace(28),
             CustomDividerWidget(),
@@ -61,9 +66,7 @@ class LoginViewBody extends StatelessWidget {
 }
 
 class CustomDividerWidget extends StatelessWidget {
-  const CustomDividerWidget({
-    super.key,
-  });
+  const CustomDividerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +88,7 @@ class CustomDividerWidget extends StatelessWidget {
 }
 
 class ForgetPassWidget extends StatelessWidget {
-  const ForgetPassWidget({
-    super.key,
-  });
+  const ForgetPassWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -106,8 +107,8 @@ class ForgetPassWidget extends StatelessWidget {
   }
 }
 
-class HaveAccountRowTextWidget extends StatelessWidget {
-  const HaveAccountRowTextWidget({
+class DontHaveAccountRowTextWidget extends StatelessWidget {
+  const DontHaveAccountRowTextWidget({
     super.key,
     required this.title,
     required this.subTilte,
@@ -242,41 +243,6 @@ class CustomPassFormField extends StatelessWidget {
             child: Icon(Icons.remove_red_eye, color: AppColors.lightGray),
           ),
         ),
-      ),
-      style: TextStyles.bold13,
-    );
-  }
-}
-
-class CustomFormField extends StatelessWidget {
-  const CustomFormField({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        isDense: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xffF9FAFA), width: 1.3),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xffF9FAFA), width: 1.3),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.red, width: 1.3),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.red, width: 1.3),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        hintStyle: TextStyles.bold13.copyWith(color: AppColors.lightGray),
-        hintText: S.of(context).enter_your_email_address,
-        fillColor: AppColors.moreLightGray,
-        filled: true,
       ),
       style: TextStyles.bold13,
     );

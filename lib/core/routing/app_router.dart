@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/routing/app_routes.dart';
 import 'package:fruit_hub/features/auth/features/login/presentation/views/login_view.dart';
+import 'package:fruit_hub/features/auth/features/signup/presentation/views/signup_view.dart';
 import 'package:fruit_hub/features/onboarding/presentation/views/onboarding_view.dart';
 
 class AppRouter {
@@ -10,6 +11,8 @@ class AppRouter {
         return _buildRoute(const OnBoardingView());
       case AppRoutes.login:
         return _buildRoute(const LoginView());
+      case AppRoutes.signup:
+        return _buildRoute(const SignUpView());
       default:
         return _buildRoute(
           Scaffold(

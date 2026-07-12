@@ -16,5 +16,14 @@
   "or": "أو",
   "sing_up": "إنشاء حساب",
   "enter_your_password":"كلمة المرور ",
-  "enter_your_email_address": "البريد الإلكتروني"
+  "enter_your_email_address": "البريد الإلكتروني",
+
+
+
+  
+  "enter_your_name": "الإسم كامل",
+  "by_continuing_you_agree_to_our":"من خلال المتابعة، فإنك توافق على ",
+  "terms_and_conditions": "الشروط والأحكام",
+  "already_have_an_account": "تمتلك حساب بالفعل؟"
+
 }

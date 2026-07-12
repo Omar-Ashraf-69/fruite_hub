@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/extenstions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
+import 'package:fruit_hub/core/widgets/custom_button_widget.dart';
 import 'package:fruit_hub/core/widgets/custom_form_field.dart';
-import 'package:fruit_hub/features/auth/features/login/presentation/views/login_view.dart';
+import 'package:fruit_hub/core/widgets/custom_pass_form_field.dart';
+import 'package:fruit_hub/features/auth/features/login/presentation/views/widgets/dont_have_an_account_row.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/views/widgets/signup_app_bar.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/views/widgets/terms_and_conditions.dart';
 import 'package:fruit_hub/generated/l10n.dart';
@@ -39,7 +41,7 @@ class SignUpViewBody extends StatelessWidget {
             verticalSpace(24),
             CustomButtonWidget(title: S.of(context).sing_up, onPressed: () {}),
             verticalSpace(24),
-            DontHaveAccountRowTextWidget(
+            CheckingHaveAccountRowTextWidget(
               title: S.of(context).already_have_an_account,
               subTilte: S.of(context).login,
               onTap: () {

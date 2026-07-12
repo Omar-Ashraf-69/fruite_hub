@@ -29,7 +29,7 @@ class LoginViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 18.w),
+      padding: EdgeInsets.symmetric(verticalflutter pub add firebase_core: 18.h, horizontal: 18.w),
       child: SingleChildScrollView(
         child: Column(
           children: [

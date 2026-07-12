@@ -16,5 +16,13 @@
   "or":"Or",
   "sing_up": "Sign Up",
   "enter_your_password":"Enter your password",
-  "enter_your_email_address":"Enter your email address"
+  "enter_your_email_address":"Enter your email address",
+
+
+
+
+  "enter_your_name":"Enter your Name",
+  "by_continuing_you_agree_to_our":"By creating an account, you agree to our ",
+  "terms_and_conditions":"Terms and Conditions",
+  "already_have_an_account":"Already have an account?"
 }

@@ -22,11 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "already_have_an_account": MessageLookupByLibrary.simpleMessage(
+      "تمتلك حساب بالفعل؟",
+    ),
+    "by_continuing_you_agree_to_our": MessageLookupByLibrary.simpleMessage(
+      "من خلال المتابعة، فإنك توافق على ",
+    ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "dont_have_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "enter_your_email_address": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني",
     ),
+    "enter_your_name": MessageLookupByLibrary.simpleMessage("الإسم كامل"),
     "enter_your_password": MessageLookupByLibrary.simpleMessage("كلمة المرور "),
     "forget_password": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمة المرور؟",
@@ -49,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sing_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "start_shopping": MessageLookupByLibrary.simpleMessage("ابدأ التسوق"),
+    "terms_and_conditions": MessageLookupByLibrary.simpleMessage(
+      "الشروط والأحكام",
+    ),
     "title": MessageLookupByLibrary.simpleMessage("مرحباً"),
     "welcome_to": MessageLookupByLibrary.simpleMessage("مرحباً بك في "),
   };

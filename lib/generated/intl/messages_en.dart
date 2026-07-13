@@ -54,6 +54,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "We offer you the finest carefully selected fruits. View details, photos, and reviews to ensure you choose the perfect fruit.",
     ),
     "or": MessageLookupByLibrary.simpleMessage("Or"),
+    "please_accept_terms_and_conditions": MessageLookupByLibrary.simpleMessage(
+      "Please accept terms and conditions",
+    ),
     "search_and_shop": MessageLookupByLibrary.simpleMessage("Search and Shop"),
     "sing_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),

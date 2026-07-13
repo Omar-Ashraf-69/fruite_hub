@@ -5,12 +5,24 @@ import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_text_styles.dart';
 
 class CustomFormField extends StatelessWidget {
-  const CustomFormField({super.key, required this.hintText});
+  const CustomFormField({super.key, required this.hintText, required this.controller,required this.validator, this.focusNode, this.textInputAction, this.onFieldSubmitted});
   final String hintText;
+final TextEditingController controller;
+  final Function(String?) validator;
+  final FocusNode? focusNode;
+  final TextInputAction? textInputAction;
 
+final ValueChanged<String>? onFieldSubmitted;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      focusNode: focusNode,
+      textInputAction: textInputAction,
+      onFieldSubmitted: onFieldSubmitted,
+      validator: (value) {
+        return validator(value);
+      },
       decoration: InputDecoration(
         isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),

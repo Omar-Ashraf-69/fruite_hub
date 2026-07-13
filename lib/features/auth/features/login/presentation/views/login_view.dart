@@ -29,15 +29,22 @@ class LoginViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(verticalflutter pub add firebase_core: 18.h, horizontal: 18.w),
+      padding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 18.w),
       child: SingleChildScrollView(
         child: Column(
           children: [
             Text(S.of(context).login, style: TextStyles.bold19),
             verticalSpace(24),
-            CustomFormField(hintText: S.of(context).enter_your_email_address),
+            CustomFormField(controller: TextEditingController(),
+            validator: (p0) {
+              
+            },
+             hintText: S.of(context).enter_your_email_address),
             verticalSpace(24),
-            CustomPassFormField(),
+            CustomPassFormField(controller: TextEditingController()
+            , validator: (p0) {
+              
+            }),
             verticalSpace(20),
             ForgetPassWidget(),
             verticalSpace(24),

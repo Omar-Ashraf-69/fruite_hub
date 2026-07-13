@@ -7,9 +7,15 @@ import 'package:fruit_hub/features/auth/features/signup/presentation/views/widge
 import 'package:fruit_hub/generated/l10n.dart';
 
 class TermsAndConditionsTextWidget extends StatelessWidget {
-  const TermsAndConditionsTextWidget({
+    const TermsAndConditionsTextWidget({
     super.key,
+    required this.isAccepted,
+    required this.onChanged,
   });
+
+  final bool isAccepted;
+  final ValueChanged<bool> onChanged;
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,10 @@ class TermsAndConditionsTextWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomCheckBox(),
+        CustomCheckBox(
+          value: isAccepted,
+          onChanged: onChanged,
+        ),
         horizontalSpace(10),
         Flexible(
           child: Padding(

@@ -24,5 +24,6 @@
   "enter_your_name":"Enter your Name",
   "by_continuing_you_agree_to_our":"By creating an account, you agree to our ",
   "terms_and_conditions":"Terms and Conditions",
-  "already_have_an_account":"Already have an account?"
+  "already_have_an_account":"Already have an account?",
+  "please_accept_terms_and_conditions":"Please accept terms and conditions"
 }

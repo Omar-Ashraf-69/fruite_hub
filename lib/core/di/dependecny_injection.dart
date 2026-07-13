@@ -1,4 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:fruit_hub/core/auth/auth_remote_data_source.dart';
+import 'package:fruit_hub/core/auth/auth_remote_data_source_impl.dart';
+import 'package:fruit_hub/core/auth/firebase_auth_service.dart';
+import 'package:fruit_hub/features/auth/core/data/repos/auth_repo_impl.dart';
+import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,9 +15,10 @@ Future<void> setupGetIt() async {
   await _registerSharedPreferences();
   //Secure Storage
   _registerSecureStorage();
+  _registerAuthDependencies();
 }
 
-void _registerSecureStorage()  {
+void _registerSecureStorage() {
   const flutterSecureStorage = FlutterSecureStorage();
   getIt.registerSingleton<FlutterSecureStorage>(flutterSecureStorage);
 }
@@ -19,4 +26,26 @@ void _registerSecureStorage()  {
 Future<void> _registerSharedPreferences() async {
   final prefs = await SharedPreferences.getInstance();
   getIt.registerSingleton<SharedPreferences>(prefs);
+}
+
+void _registerAuthDependencies() {
+  // Firebase SDK
+  getIt.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
+
+  // Services
+  getIt.registerLazySingleton<FirebaseAuthService>(
+    () => FirebaseAuthService(instance: getIt<FirebaseAuth>()),
+  );
+
+  // Remote Data Sources
+  getIt.registerLazySingleton<AuthRemoteDataSource>(
+    () => AuthRemoteDataSourceImpl(
+      firebaseAuthService: getIt<FirebaseAuthService>(),
+    ),
+  );
+
+  // Repositories
+  getIt.registerLazySingleton<AuthRepo>(
+    () => AuthRepoImpl(remoteDataSource: getIt<AuthRemoteDataSource>()),
+  );
 }

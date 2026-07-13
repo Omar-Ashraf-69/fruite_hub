@@ -3,14 +3,15 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/localization/locale_provider.dart';
 import 'package:fruit_hub/core/routing/app_router.dart';
-import 'package:fruit_hub/core/routing/app_routes.dart';
 import 'package:fruit_hub/core/theme/theme.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
 class FruitHubApp extends StatelessWidget {
-  const FruitHubApp({super.key});
+  const FruitHubApp({super.key, required this._appRouter, required this.initialRoute});
 
+  final AppRouter _appRouter;
+  final String initialRoute;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -30,8 +31,8 @@ class FruitHubApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.login,
-        onGenerateRoute: AppRouter().onGenerateRoute,
+        initialRoute: initialRoute,
+        onGenerateRoute: _appRouter.onGenerateRoute,
       ),
     );
   }

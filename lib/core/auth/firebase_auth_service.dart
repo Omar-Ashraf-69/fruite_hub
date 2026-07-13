@@ -6,6 +6,8 @@ class FirebaseAuthService {
   });
 
   final FirebaseAuth _instance;
+  User? get currentUser => _instance.currentUser;
+
 
   Future<User> createUserWithEmailAndPassword({
     required String email,

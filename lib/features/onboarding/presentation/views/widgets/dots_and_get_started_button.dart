@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/constants/pref_keys.dart';
+import 'package:fruit_hub/core/di/dependecny_injection.dart';
 import 'package:fruit_hub/core/helpers/extenstions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/routing/app_routes.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_text_styles.dart';
 import 'package:fruit_hub/generated/l10n.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DotsAndGetStartedButton extends StatelessWidget {
   final ValueNotifier<int> currentPage;
@@ -54,8 +57,13 @@ class GetStartedButtonWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(24.r),
                       ),
                     ),
-                    onPressed: () =>
-                        context.pushNamedAndRemoveAll(AppRoutes.login),
+                    onPressed: () async {
+                      await getIt<SharedPreferences>().setBool(
+                        PrefKeys.isOnboardingSeen,
+                        true,
+                      );
+                      context.pushNamedAndRemoveAll(AppRoutes.login);
+                    },
                     child: Text(
                       S.of(context).start_shopping,
                       style: TextStyles.bold16,

@@ -9,7 +9,7 @@ import 'package:fruit_hub/features/auth/features/signup/presentation/cubit/signu
 import 'package:fruit_hub/features/auth/features/signup/presentation/views/widgets/signup_app_bar.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/views/widgets/signup_bloc_listner.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/views/widgets/signup_text_field_section.dart';
-import 'package:fruit_hub/features/auth/features/signup/presentation/views/widgets/terms_and_conditions.dart';
+import 'package:fruit_hub/features/auth/features/signup/presentation/views/widgets/terms_and_conditions_form_field.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
 class SignUpView extends StatelessWidget {
@@ -17,7 +17,7 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: SignUpViewBody()));
+    return Scaffold(body: SafeArea(child: const SignUpViewBody()));
   }
 }
 
@@ -44,7 +44,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   final _emailFocusNode = FocusNode();
 
   final _passwordFocusNode = FocusNode();
-  bool _acceptedTerms = false;
 
   @override
   void dispose() {
@@ -64,12 +63,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 18.w),
       child: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Form(
           key: _formKey,
           autovalidateMode: _autoValidateMode,
           child: Column(
             children: [
-              SignUpAppBar(),
+              const SignUpAppBar(),
               verticalSpace(24),
               SignUpTextFieldSection(
                 emailController: _emailController,
@@ -81,41 +81,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 onSubmit: () => _submit(),
               ),
               verticalSpace(20),
-              FormField<bool>(
-                initialValue: _acceptedTerms,
-                validator: (value) {
-                  if (value != true) {
-                    return S.of(context).please_accept_terms_and_conditions;
-                  }
-                  return null;
-                },
-                builder: (field) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TermsAndConditionsTextWidget(
-                        isAccepted: field.value ?? false,
-                        onChanged: (value) {
-                          field.didChange(value);
-
-                          setState(() {
-                            _acceptedTerms = value;
-                          });
-                        },
-                      ),
-
-                      if (field.hasError)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 6),
-                          child: Text(
-                            field.errorText!,
-                            style: const TextStyle(color: Colors.red),
-                          ),
-                        ),
-                    ],
-                  );
-                },
-              ),
+              const TermsAndConditionsFormField(),
 
               verticalSpace(24),
               CustomButtonWidget(
@@ -130,7 +96,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   context.pop();
                 },
               ),
-              SignUpBlocListner(),
+              const SignUpBlocListner(),
             ],
           ),
         ),
@@ -139,27 +105,16 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   }
 
   void _submit() {
-    if (_formKey.currentState!.validate()) {
-      // if (!_acceptedTerms) {
-      //   final messenger = ScaffoldMessenger.of(context);
-
-      //   messenger
-      //     ..hideCurrentSnackBar()
-      //     ..showSnackBar(
-      //       SnackBar(
-      //         content: Text(S.of(context).please_accept_terms_and_conditions),
-      //       ),
-      //     );
-      //   return;
-      // }
-      context.read<SignUpCubit>().signup(
-        name: _nameController.text.trim(),
-        email: _emailController.text.trim(),
-        pass: _passwordController.text,
-      );
+    if (!_formKey.currentState!.validate()) {
+      setState(() {
+        _autoValidateMode = AutovalidateMode.onUserInteraction;
+      });
+      return;
     }
-    setState(() {
-      _autoValidateMode = AutovalidateMode.onUserInteraction;
-    });
+    context.read<SignUpCubit>().signup(
+      name: _nameController.text.trim(),
+      email: _emailController.text.trim(),
+      pass: _passwordController.text,
+    );
   }
 }

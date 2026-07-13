@@ -9,9 +9,7 @@ import 'package:fruit_hub/features/auth/core/data/models/user_model.dart';
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final FirebaseAuthService firebaseAuthService;
 
-  AuthRemoteDataSourceImpl({
-    required this.firebaseAuthService,
-  });
+  AuthRemoteDataSourceImpl({required this.firebaseAuthService});
 
   @override
   Future<UserModel> createUserWithEmailAndPassword({
@@ -20,34 +18,19 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String name,
   }) async {
     try {
-      final firebaseUser =
-          await firebaseAuthService.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      final firebaseUser = await firebaseAuthService
+          .createUserWithEmailAndPassword(email: email, password: password);
 
-      return UserModel(
-        name: name,
-        email: email,
-        uid: firebaseUser.uid,
-      );
+      return UserModel(name: name, email: email, uid: firebaseUser.uid);
     } on FirebaseAuthException catch (e, stackTrace) {
-      log(
-        'FirebaseAuthException: ${e.code}',
-        stackTrace: stackTrace,
-      );
+      log('FirebaseAuthException: ${e.code}', stackTrace: stackTrace);
 
-      throw  CustomException(
+      throw CustomException(
         message: FirebaseExceptionMapper.mapAuthException(e.code),
       );
     } catch (e, stackTrace) {
-      log(
-        e.toString(),
-        stackTrace: stackTrace,
-      );
-      throw  CustomException(
-        message: 'حدث خطأ ما، الرجاء المحاولة مرة أخرى.',
-      );
+      log(e.toString(), stackTrace: stackTrace);
+      throw CustomException(message: 'حدث خطأ ما، الرجاء المحاولة مرة أخرى.');
     }
   }
 
@@ -79,6 +62,33 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       default:
         return 'حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.';
+    }
+  }
+
+  @override
+  Future<UserModel> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final firebaseUser = await firebaseAuthService.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return UserModel(
+        email: email,
+        uid: firebaseUser.uid,
+        name: firebaseUser.displayName ?? '',
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      log('FirebaseAuthException: ${e.code}', stackTrace: stackTrace);
+
+      throw CustomException(
+        message: FirebaseExceptionMapper.mapAuthException(e.code),
+      );
+    } catch (e, stackTrace) {
+      log(e.toString(), stackTrace: stackTrace);
+      throw CustomException(message: 'حدث خطأ ما، الرجاء المحاولة مرة أخرى.');
     }
   }
 }

@@ -17,7 +17,9 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: const SignUpViewBody()));
+    return Scaffold(
+      body: SafeArea(child: SignUpBlocListner(child: const SignUpViewBody())),
+    );
   }
 }
 
@@ -96,7 +98,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   context.pop();
                 },
               ),
-              const SignUpBlocListner(),
             ],
           ),
         ),

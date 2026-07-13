@@ -22,4 +22,15 @@ class FirebaseAuthService {
   Future<void> deleteCurrentUser() async {
     await _instance.currentUser?.delete();
   }
+
+  Future<User> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    final credential = await _instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    return credential.user!;
+  }
 }

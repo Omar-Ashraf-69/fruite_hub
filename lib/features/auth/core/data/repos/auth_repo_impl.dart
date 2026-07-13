@@ -45,4 +45,33 @@ class AuthRepoImpl implements AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword({
+    required String emailAddress,
+    required String password,
+  }) async {
+    try {
+      final userModel = await _remoteDataSource.signInWithEmailAndPassword(
+        email: emailAddress,
+        password: password,
+      );
+
+      return Right(userModel.toEntity());
+    } on CustomException catch (e) {
+      return Left(ServerFailure(e.message));
+    } catch (e, stackTrace) {
+      log(
+        'AuthRepoImpl.signInWithEmailAndPassword',
+        error: e,
+        stackTrace: stackTrace,
+      );
+
+      return const Left(
+        ServerFailure(
+          'حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.',
+        ),
+      );
+    }
+  }
 }

@@ -30,7 +30,7 @@ class FruitHubApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.signup,
+        initialRoute: AppRoutes.login,
         onGenerateRoute: AppRouter().onGenerateRoute,
       ),
     );

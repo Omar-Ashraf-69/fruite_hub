@@ -7,5 +7,10 @@ abstract class AuthRemoteDataSource {
     required String name,
   });
 
+  Future<UserModel> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
+
   Future<void> deleteCurrentUser();
 }

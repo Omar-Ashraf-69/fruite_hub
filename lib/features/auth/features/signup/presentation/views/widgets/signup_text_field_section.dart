@@ -43,6 +43,7 @@ class SignUpTextFieldSection extends StatelessWidget {
         ),
         verticalSpace(24),
         CustomFormField(
+          keyboardType: TextInputType.emailAddress,
           controller: emailController,
           validator: AppValidators.validateEmail,
           hintText: S.of(context).enter_your_email_address,

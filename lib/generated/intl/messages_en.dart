@@ -67,6 +67,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "The file was not found",
     ),
     "forget_password": MessageLookupByLibrary.simpleMessage("Forget Password?"),
+    "google_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
+      "Google sign-in was cancelled.",
+    ),
     "got_it": MessageLookupByLibrary.simpleMessage("Got it"),
     "invalid_credentials": MessageLookupByLibrary.simpleMessage(
       "The email or password is incorrect",

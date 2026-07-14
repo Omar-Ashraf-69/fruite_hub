@@ -7,10 +7,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   final AuthRepo repo;
 
-  void login({
-    required String email,
-    required String pass,
-  }) async {
+  void login({required String email, required String pass}) async {
     emit(LoginLoading());
     final response = await repo.signInWithEmailAndPassword(
       emailAddress: email,
@@ -22,7 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  void loginWithGoogle() async {
+  void signInWithGoogle() async {
     emit(LoginLoading());
     final response = await repo.signInWithGoogle();
     response.fold(

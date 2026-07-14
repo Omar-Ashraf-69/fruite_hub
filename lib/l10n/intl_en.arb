@@ -66,6 +66,8 @@
   
   "sign_in_now": "Sign In Now",
   "welcome": "Welcome to Fruit Hub",
-  "to_fruit_hub":"to Fruit Hub"
+  "to_fruit_hub":"to Fruit Hub",
 
+
+  "google_sign_in_cancelled":"Google sign-in was cancelled."
 }

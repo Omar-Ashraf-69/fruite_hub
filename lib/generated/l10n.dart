@@ -564,6 +564,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Google sign-in was cancelled.`
+  String get google_sign_in_cancelled {
+    return Intl.message(
+      'Google sign-in was cancelled.',
+      name: 'google_sign_in_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

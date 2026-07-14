@@ -61,6 +61,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "forget_password": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمة المرور؟",
     ),
+    "google_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
+      "تم إلغاء تسجيل الدخول إلى حساب جوجل",
+    ),
     "got_it": MessageLookupByLibrary.simpleMessage("حسناً"),
     "invalid_credentials": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني أو كلمة المرور غير صحيحة",

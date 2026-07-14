@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/auth/firebase_auth_service.dart';
 import 'package:fruit_hub/features/auth/core/data/repos/auth_repo_impl.dart';
 import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
@@ -31,10 +32,14 @@ Future<void> _registerSharedPreferences() async {
 void _registerAuthDependencies() {
   // Firebase SDK
   getIt.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
+  getIt.registerLazySingleton<GoogleSignIn>(() => GoogleSignIn.instance);
 
   // Services
   getIt.registerLazySingleton<FirebaseAuthService>(
-    () => FirebaseAuthService(instance: getIt<FirebaseAuth>()),
+    () => FirebaseAuthService(
+      instance: getIt<FirebaseAuth>(),
+      googleSignIn: getIt<GoogleSignIn>(),
+    ),
   );
 
   // Remote Data Sources

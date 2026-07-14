@@ -68,5 +68,9 @@
 
   "please_enter_a_valid_email": "يرجى إدخال بريد إلكتروني صالح",
   "please_enter_a_valid_password": "يرجى إدخال كلمة مرور صالحة",
-  "please_enter_a_valid_name": "يرجى إدخال اسم صالح"
+  "please_enter_a_valid_name": "يرجى إدخال اسم صالح",
+
+
+    "google_sign_in_cancelled":"تم إلغاء تسجيل الدخول إلى حساب جوجل"
+
 }

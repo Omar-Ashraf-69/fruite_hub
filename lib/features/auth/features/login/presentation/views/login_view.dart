@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -96,8 +94,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               verticalSpace(28),
               SignButtonWidget(
                 onPressed: () {
-                  log('login with google');
-                  context.read<LoginCubit>().loginWithGoogle();
+                  context.read<LoginCubit>().signInWithGoogle();
                 },
                 icon: Assets.svgsGoogleIcon,
                 buttonLabel: S.of(context).login_with_google,

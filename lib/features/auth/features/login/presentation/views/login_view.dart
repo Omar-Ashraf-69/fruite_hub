@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -93,11 +95,16 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const CustomDividerWidget(),
               verticalSpace(28),
               SignButtonWidget(
+                onPressed: () {
+                  log('login with google');
+                  context.read<LoginCubit>().loginWithGoogle();
+                },
                 icon: Assets.svgsGoogleIcon,
                 buttonLabel: S.of(context).login_with_google,
               ),
               verticalSpace(32),
               SignButtonWidget(
+                onPressed: () {},
                 icon: Assets.svgsFacebookIcon,
                 buttonLabel: S.of(context).login_with_facebook,
               ),

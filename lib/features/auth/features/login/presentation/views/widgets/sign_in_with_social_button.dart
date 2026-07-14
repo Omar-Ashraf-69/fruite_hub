@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,9 +8,11 @@ class SignButtonWidget extends StatelessWidget {
     super.key,
     required this.icon,
     required this.buttonLabel,
+    this.onPressed,
   });
   final String icon;
   final String buttonLabel;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -28,7 +29,7 @@ class SignButtonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(18.r),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: Row(

@@ -9,9 +9,7 @@ import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
 class AuthRepoImpl implements AuthRepo {
-  const AuthRepoImpl({
-    required this._remoteDataSource,
-  });
+  const AuthRepoImpl({required this._remoteDataSource});
 
   final AuthRemoteDataSource _remoteDataSource;
 
@@ -22,8 +20,7 @@ class AuthRepoImpl implements AuthRepo {
     required String name,
   }) async {
     try {
-      final userModel =
-          await _remoteDataSource.createUserWithEmailAndPassword(
+      final userModel = await _remoteDataSource.createUserWithEmailAndPassword(
         email: emailAddress,
         password: password,
         name: name,
@@ -39,11 +36,7 @@ class AuthRepoImpl implements AuthRepo {
         stackTrace: stackTrace,
       );
 
-      return  Left(
-        ServerFailure(
-          S.current.unexpected_error,
-        ),
-      );
+      return Left(ServerFailure(S.current.unexpected_error));
     }
   }
 
@@ -68,11 +61,25 @@ class AuthRepoImpl implements AuthRepo {
         stackTrace: stackTrace,
       );
 
-      return  Left(
-        ServerFailure(
-          S.current.unexpected_error,
-        ),
+      return Left(ServerFailure(S.current.unexpected_error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      final response = await _remoteDataSource.signInWithGoogle();
+      return Right(response.toEntity());
+    } on CustomException catch (e) {
+      return Left(ServerFailure(e.message));
+    } catch (e, stackTrace) {
+      log(
+        'AuthRepoImpl.signInWithEmailAndPassword',
+        error: e,
+        stackTrace: stackTrace,
       );
+
+      return Left(ServerFailure(S.current.unexpected_error));
     }
   }
 }

@@ -21,4 +21,13 @@ class LoginCubit extends Cubit<LoginState> {
       (user) => emit(LoginSuccess(user: user)),
     );
   }
+
+  void loginWithGoogle() async {
+    emit(LoginLoading());
+    final response = await repo.signInWithGoogle();
+    response.fold(
+      (error) => emit(LoginFailure(message: error.message)),
+      (user) => emit(LoginSuccess(user: user)),
+    );
+  }
 }

@@ -40,32 +40,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     await firebaseAuthService.deleteCurrentUser();
   }
 
-  // ignore: unused_element
-  String _mapFirebaseAuthException(String code) {
-    switch (code) {
-      case 'weak-password':
-        return S.current.weak_password;
-
-      case 'email-already-in-use':
-        return S.current.email_already_in_use;
-
-      case 'invalid-email':
-        return S.current.invalid_credentials;
-
-      case 'network-request-failed':
-        return S.current.check_your_internet_connection;
-
-      case 'operation-not-allowed':
-        return S.current.operation_not_allowed;
-
-      case 'too-many-requests':
-        return S.current.too_many_requests;
-
-      default:
-        return S.current.unexpected_error;
-    }
-  }
-
   @override
   Future<UserModel> signInWithEmailAndPassword({
     required String email,
@@ -89,7 +63,30 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
     } catch (e, stackTrace) {
       log(e.toString(), stackTrace: stackTrace);
-      throw CustomException(message: 'حدث خطأ ما، الرجاء المحاولة مرة أخرى.');
+      throw CustomException(message: S.current.unexpected_error);
+    }
+  }
+
+  @override
+  Future<UserModel> signInWithGoogle() {
+    try {
+      final firebaseUser = firebaseAuthService.signInWithGoogle();
+      return firebaseUser.then(
+        (value) => UserModel(
+          email: value.user?.email ?? '',
+          uid: value.user!.uid,
+          name: value.user?.displayName ?? '',
+        ),
+      );
+    } on FirebaseAuthException catch (e, stackTrace) {
+      log('FirebaseAuthException: ${e.code}', stackTrace: stackTrace);
+
+      throw CustomException(
+        message: FirebaseExceptionMapper.mapAuthException(e.code),
+      );
+    } catch (e, stackTrace) {
+      log(e.toString(), stackTrace: stackTrace);
+      throw CustomException(message: S.current.unexpected_error);
     }
   }
 }

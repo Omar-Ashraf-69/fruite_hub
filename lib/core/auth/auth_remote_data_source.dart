@@ -13,4 +13,6 @@ abstract class AuthRemoteDataSource {
   });
 
   Future<void> deleteCurrentUser();
+
+  Future<UserModel> signInWithGoogle();
 }

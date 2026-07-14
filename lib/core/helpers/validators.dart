@@ -1,9 +1,10 @@
 import 'package:fruit_hub/core/helpers/app_regex.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class AppValidators {
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty || !AppRegex.isEmailValid(value)) {
-      return 'Please enter a valid email';
+      return S.current.please_enter_a_valid_email;
     }
     return null;
   }
@@ -11,14 +12,14 @@ class AppValidators {
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       !AppRegex.isPasswordValid(value!);
-      return 'Please enter a valid password';
+      return S.current.please_enter_a_valid_password;
     }
     return null;
   }
 
   static String? validateName(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter a valid Name';
+      return S.current.please_enter_a_valid_name;
     }
     return null;
   }

@@ -1,96 +1,98 @@
+import 'package:fruit_hub/generated/l10n.dart';
+
 class FirebaseExceptionMapper {
   const FirebaseExceptionMapper._();
 
   static String mapAuthException(String code) {
     switch (code) {
       case 'invalid-email':
-        return 'البريد الإلكتروني غير صالح.';
+        return S.current.invalid_credentials;
 
       case 'invalid-credential':
-        return 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+        return S.current.invalid_credentials;
 
       case 'user-disabled':
-        return 'تم تعطيل هذا الحساب.';
+        return S.current.user_disabled;
 
       case 'user-not-found':
-        return 'لا يوجد حساب بهذا البريد الإلكتروني.';
+        return S.current.user_not_found;
 
       case 'wrong-password':
-        return 'كلمة المرور غير صحيحة.';
+        return S.current.wrong_password;
 
       case 'email-already-in-use':
-        return 'هذا البريد الإلكتروني مستخدم بالفعل.';
+        return S.current.email_already_in_use;
 
       case 'weak-password':
-        return 'كلمة المرور ضعيفة جداً.';
+        return S.current.weak_password;
 
       case 'network-request-failed':
-        return 'يرجى التحقق من اتصالك بالإنترنت.';
+        return S.current.check_your_internet_connection;
 
       case 'too-many-requests':
-        return 'تمت المحاولة عدة مرات. يرجى المحاولة لاحقاً.';
+        return S.current.too_many_requests;
 
       case 'operation-not-allowed':
-        return 'هذه العملية غير متاحة حالياً.';
+        return S.current.operation_not_allowed;
 
       case 'requires-recent-login':
-        return 'يرجى تسجيل الدخول مرة أخرى ثم إعادة المحاولة.';
+        return S.current.requires_recent_login;
 
       default:
-        return 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.';
+        return S.current.unexpected_error;
     }
   }
 
   static String mapFirestoreException(String code) {
     switch (code) {
       case 'permission-denied':
-        return 'ليس لديك صلاحية لتنفيذ هذه العملية.';
+        return S.current.permission_denied;
 
       case 'not-found':
-        return 'البيانات المطلوبة غير موجودة.';
+        return S.current.data_not_found;
 
       case 'already-exists':
-        return 'البيانات موجودة بالفعل.';
+        return S.current.data_already_exists;
 
       case 'unavailable':
-        return 'الخدمة غير متاحة حالياً.';
+        return S.current.service_unavailable;
 
       case 'deadline-exceeded':
-        return 'انتهت مهلة الاتصال. يرجى المحاولة مرة أخرى.';
+        return S.current.connection_timeout;
 
       case 'cancelled':
-        return 'تم إلغاء العملية.';
+        return S.current.operation_cancelled;
 
       case 'resource-exhausted':
-        return 'تم تجاوز الحد المسموح به.';
+        return S.current.resource_exhausted;
 
       default:
-        return 'حدث خطأ أثناء التعامل مع قاعدة البيانات.';
+        return S.current.database_error;
     }
   }
 
   static String mapStorageException(String code) {
     switch (code) {
       case 'object-not-found':
-        return 'الملف غير موجود.';
+        return S.current.file_not_found;
 
       case 'unauthorized':
-        return 'ليس لديك صلاحية للوصول إلى هذا الملف.';
+        return S.current.file_access_denied;
 
       case 'canceled':
-        return 'تم إلغاء العملية.';
+        return S.current.operation_cancelled;
 
       case 'quota-exceeded':
-        return 'تم تجاوز الحد المسموح به للتخزين.';
+        return S.current.storage_quota_exceeded;
 
       case 'retry-limit-exceeded':
-        return 'فشلت العملية. يرجى المحاولة مرة أخرى.';
+        return S.current.operation_failed_retry;
 
       case 'invalid-checksum':
-        return 'الملف تالف.';
+        return S.current.file_corrupted;
 
       default:
-        return 'حدث خطأ أثناء رفع أو تنزيل الملف.';
+        return S.current.storage_error;
     }
   }
 }

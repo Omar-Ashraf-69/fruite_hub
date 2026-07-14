@@ -8,6 +8,7 @@ import 'package:fruit_hub/core/theme/app_text_styles.dart';
 import 'package:fruit_hub/features/auth/core/domain/entites/user_entity.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/cubit/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/cubit/signup_state.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class SignUpBlocListner extends StatelessWidget {
   const SignUpBlocListner({super.key, required this.child});
@@ -33,8 +34,6 @@ class SignUpBlocListner extends StatelessWidget {
     );
   }
 
- 
-
   Future<dynamic> setupSignUpSuccessState(
     BuildContext context,
     UserEntity user,
@@ -48,7 +47,7 @@ class SignUpBlocListner extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          "Welcome ${user.name} to Fruit Hub",
+          "${S.of(context).welcome} ${user.name} ${S.of(context).to_fruit_hub}",
           style: TextStyles.bold16,
         ),
         actions: [
@@ -57,7 +56,7 @@ class SignUpBlocListner extends StatelessWidget {
               context.pop();
               context.pushNamedAndRemoveAll(AppRoutes.login);
             },
-            child: Text('Sing In Now', style: TextStyles.semiBold13),
+            child: Text(S.of(context).sign_in_now, style: TextStyles.semiBold13),
           ),
         ],
       ),

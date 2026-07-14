@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
 import 'package:fruit_hub/features/auth/core/domain/entites/user_entity.dart';
 import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class AuthRepoImpl implements AuthRepo {
   const AuthRepoImpl({
@@ -38,9 +39,9 @@ class AuthRepoImpl implements AuthRepo {
         stackTrace: stackTrace,
       );
 
-      return const Left(
+      return  Left(
         ServerFailure(
-          'حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.',
+          S.current.unexpected_error,
         ),
       );
     }
@@ -67,9 +68,9 @@ class AuthRepoImpl implements AuthRepo {
         stackTrace: stackTrace,
       );
 
-      return const Left(
+      return  Left(
         ServerFailure(
-          'حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.',
+          S.current.unexpected_error,
         ),
       );
     }

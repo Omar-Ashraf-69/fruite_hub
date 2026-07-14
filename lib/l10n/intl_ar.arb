@@ -24,6 +24,49 @@
   "enter_your_name": "الإسم كامل",
   "by_continuing_you_agree_to_our":"من خلال المتابعة، فإنك توافق على ",
   "terms_and_conditions": "الشروط والأحكام",
-  "already_have_an_account": "تمتلك حساب بالفعل؟"
+  "already_have_an_account": "تمتلك حساب بالفعل؟",
 
+  "got_it": "حسناً",
+
+  "something_went_wrong": "حدث خطأ ما، الرجاء المحاولة مرة أخرى",
+  "please_accept_terms_and_conditions": "يرجى الموافقة على الشروط والأحكام",
+
+  "invalid_email": "البريد الإلكتروني غير صالح",
+  "invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+  "user_disabled": "تم تعطيل هذا الحساب",
+  "user_not_found": "لا يوجد حساب بهذا البريد الإلكتروني",
+  "wrong_password": "كلمة المرور غير صحيحة",
+  "email_already_in_use": "هذا البريد الإلكتروني مستخدم بالفعل",
+  "weak_password": "كلمة المرور ضعيفة جداً",
+  "check_your_internet_connection": "يرجى التحقق من اتصالك بالإنترنت",
+  "too_many_requests": "تمت المحاولة عدة مرات. يرجى المحاولة لاحقاً",
+  "operation_not_allowed": "هذه العملية غير متاحة حالياً",
+  "requires_recent_login": "يرجى تسجيل الدخول مرة أخرى ثم إعادة المحاولة",
+  "unexpected_error": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى",
+
+  "permission_denied": "ليس لديك صلاحية لتنفيذ هذه العملية",
+  "data_not_found": "البيانات المطلوبة غير موجودة",
+  "data_already_exists": "البيانات موجودة بالفعل",
+  "service_unavailable": "الخدمة غير متاحة حالياً",
+  "connection_timeout": "انتهت مهلة الاتصال. يرجى المحاولة مرة أخرى",
+  "operation_cancelled": "تم إلغاء العملية",
+  "resource_exhausted": "تم تجاوز الحد المسموح به",
+  "database_error": "حدث خطأ أثناء التعامل مع قاعدة البيانات",
+
+  "file_not_found": "الملف غير موجود",
+  "file_access_denied": "ليس لديك صلاحية للوصول إلى هذا الملف",
+  "storage_quota_exceeded": "تم تجاوز الحد المسموح به للتخزين",
+  "operation_failed_retry": "فشلت العملية. يرجى المحاولة مرة أخرى",
+  "file_corrupted": "الملف تالف",
+  "storage_error": "حدث خطأ أثناء رفع أو تنزيل الملف",
+
+  
+  "sign_in_now": "سجل الدخول الآن",
+  "welcome": "مرحباً",
+  "to_fruit_hub":"اذهب إلى Fruit Hub",
+
+
+  "please_enter_a_valid_email": "يرجى إدخال بريد إلكتروني صالح",
+  "please_enter_a_valid_password": "يرجى إدخال كلمة مرور صالحة",
+  "please_enter_a_valid_name": "يرجى إدخال اسم صالح"
 }

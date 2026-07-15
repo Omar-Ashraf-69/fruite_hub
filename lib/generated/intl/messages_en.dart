@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "account_exists_with_different_credential":
+        MessageLookupByLibrary.simpleMessage(
+          "An account with this email already exists. Please sign in using your previous login method.",
+        ),
     "already_have_an_account": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -56,6 +60,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "enter_your_name": MessageLookupByLibrary.simpleMessage("Enter your Name"),
     "enter_your_password": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
+    ),
+    "facebook_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
+      "Facebook sign-in was cancelled.",
     ),
     "file_access_denied": MessageLookupByLibrary.simpleMessage(
       "You don\'t have permission to access this file",
@@ -155,7 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "weak_password": MessageLookupByLibrary.simpleMessage(
       "The password is too weak",
     ),
-    "welcome": MessageLookupByLibrary.simpleMessage("Welcome to Fruit Hub"),
+    "welcome": MessageLookupByLibrary.simpleMessage("Welcome "),
     "welcome_to": MessageLookupByLibrary.simpleMessage("Welcome to"),
     "wrong_password": MessageLookupByLibrary.simpleMessage(
       "The password is incorrect",

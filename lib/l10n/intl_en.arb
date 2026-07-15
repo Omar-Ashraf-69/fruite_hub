@@ -65,9 +65,11 @@
 
   
   "sign_in_now": "Sign In Now",
-  "welcome": "Welcome to Fruit Hub",
+  "welcome": "Welcome ",
   "to_fruit_hub":"to Fruit Hub",
 
 
-  "google_sign_in_cancelled":"Google sign-in was cancelled."
+  "google_sign_in_cancelled":"Google sign-in was cancelled.",
+  "facebook_sign_in_cancelled":"Facebook sign-in was cancelled.",
+  "account_exists_with_different_credential": "An account with this email already exists. Please sign in using your previous login method."
 }

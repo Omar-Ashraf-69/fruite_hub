@@ -15,4 +15,6 @@ abstract class AuthRemoteDataSource {
   Future<void> deleteCurrentUser();
 
   Future<UserModel> signInWithGoogle();
+
+  Future<UserModel> signInWithFacebook();
 }

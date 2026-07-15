@@ -71,6 +71,8 @@
   "please_enter_a_valid_name": "يرجى إدخال اسم صالح",
 
 
-    "google_sign_in_cancelled":"تم إلغاء تسجيل الدخول إلى حساب جوجل"
+  "google_sign_in_cancelled":"تم إلغاء تسجيل الدخول إلى حساب جوجل",
+  "facebook_sign_in_cancelled":"تم إلغاء تسجيل الدخول إلى حساب فيسبوك",
+  "account_exists_with_different_credential": "يوجد حساب بهذا البريد الإلكتروني بالفعل. يرجى تسجيل الدخول باستخدام الطريقة السابقة."
 
 }

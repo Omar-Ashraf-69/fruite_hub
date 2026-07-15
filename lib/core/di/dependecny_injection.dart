@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source_impl.dart';
@@ -33,12 +34,13 @@ void _registerAuthDependencies() {
   // Firebase SDK
   getIt.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   getIt.registerLazySingleton<GoogleSignIn>(() => GoogleSignIn.instance);
-
+  getIt.registerLazySingleton<FacebookAuth>(() => FacebookAuth.instance);
   // Services
   getIt.registerLazySingleton<FirebaseAuthService>(
     () => FirebaseAuthService(
       instance: getIt<FirebaseAuth>(),
       googleSignIn: getIt<GoogleSignIn>(),
+      facebookAuth: getIt<FacebookAuth>(),
     ),
   );
 

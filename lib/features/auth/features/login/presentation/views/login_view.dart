@@ -101,8 +101,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               ),
               verticalSpace(32),
               SignButtonWidget(
-                onPressed: () {},
-                icon: Assets.svgsFacebookIcon,
+ onPressed: () {
+                  context.read<LoginCubit>().signInWithFacebook();
+                },                icon: Assets.svgsFacebookIcon,
                 buttonLabel: S.of(context).login_with_facebook,
               ),
             ],

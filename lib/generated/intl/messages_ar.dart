@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "account_exists_with_different_credential":
+        MessageLookupByLibrary.simpleMessage(
+          "يوجد حساب بهذا البريد الإلكتروني بالفعل. يرجى تسجيل الدخول باستخدام الطريقة السابقة.",
+        ),
     "already_have_an_account": MessageLookupByLibrary.simpleMessage(
       "تمتلك حساب بالفعل؟",
     ),
@@ -53,6 +57,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enter_your_name": MessageLookupByLibrary.simpleMessage("الإسم كامل"),
     "enter_your_password": MessageLookupByLibrary.simpleMessage("كلمة المرور "),
+    "facebook_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
+      "تم إلغاء تسجيل الدخول إلى حساب فيسبوك",
+    ),
     "file_access_denied": MessageLookupByLibrary.simpleMessage(
       "ليس لديك صلاحية للوصول إلى هذا الملف",
     ),

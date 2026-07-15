@@ -40,10 +40,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<UserModel> signInWithGoogle() async {
     final credential = await firebaseAuthService.signInWithGoogle();
-    return UserModel(
-      email: credential.user?.email ?? '',
-      uid: credential.user!.uid,
-      name: credential.user?.displayName ?? '',
-    );
+    return UserModel.toUserModel(credential.user!);
+  }
+
+  @override
+  Future<UserModel> signInWithFacebook() async {
+    final credential = await firebaseAuthService.signInWithFacebook();
+    return UserModel.toUserModel(credential.user!);
   }
 }

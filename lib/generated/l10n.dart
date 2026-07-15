@@ -545,14 +545,9 @@ class S {
     return Intl.message('Sign In Now', name: 'sign_in_now', desc: '', args: []);
   }
 
-  /// `Welcome to Fruit Hub`
+  /// `Welcome `
   String get welcome {
-    return Intl.message(
-      'Welcome to Fruit Hub',
-      name: 'welcome',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Welcome ', name: 'welcome', desc: '', args: []);
   }
 
   /// `to Fruit Hub`
@@ -570,6 +565,26 @@ class S {
     return Intl.message(
       'Google sign-in was cancelled.',
       name: 'google_sign_in_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Facebook sign-in was cancelled.`
+  String get facebook_sign_in_cancelled {
+    return Intl.message(
+      'Facebook sign-in was cancelled.',
+      name: 'facebook_sign_in_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An account with this email already exists. Please sign in using your previous login method.`
+  String get account_exists_with_different_credential {
+    return Intl.message(
+      'An account with this email already exists. Please sign in using your previous login method.',
+      name: 'account_exists_with_different_credential',
       desc: '',
       args: [],
     );

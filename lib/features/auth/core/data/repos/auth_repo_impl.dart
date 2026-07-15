@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
+import 'package:fruit_hub/features/auth/core/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/core/domain/entites/user_entity.dart';
 import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
 import 'package:fruit_hub/generated/l10n.dart';
@@ -19,25 +20,15 @@ class AuthRepoImpl implements AuthRepo {
     required String password,
     required String name,
   }) async {
-    try {
-      final userModel = await _remoteDataSource.createUserWithEmailAndPassword(
+    return await _executeAuthOperation(
+      () => _remoteDataSource.createUserWithEmailAndPassword(
         email: emailAddress,
         password: password,
         name: name,
-      );
+      ),
+      methodName: "AuthRepoImpl.createUserWithEmailAndPassword",
+    );
 
-      return Right(userModel.toEntity());
-    } on CustomException catch (e) {
-      return Left(ServerFailure(e.message));
-    } catch (e, stackTrace) {
-      log(
-        'AuthRepoImpl.createUserWithEmailAndPassword',
-        error: e,
-        stackTrace: stackTrace,
-      );
-
-      return Left(ServerFailure(S.current.unexpected_error));
-    }
   }
 
   @override
@@ -45,39 +36,42 @@ class AuthRepoImpl implements AuthRepo {
     required String emailAddress,
     required String password,
   }) async {
-    try {
-      final userModel = await _remoteDataSource.signInWithEmailAndPassword(
+    return await _executeAuthOperation(
+      () => _remoteDataSource.signInWithEmailAndPassword(
         email: emailAddress,
         password: password,
-      );
-
-      return Right(userModel.toEntity());
-    } on CustomException catch (e) {
-      return Left(ServerFailure(e.message));
-    } catch (e, stackTrace) {
-      log(
-        'AuthRepoImpl.signInWithEmailAndPassword',
-        error: e,
-        stackTrace: stackTrace,
-      );
-
-      return Left(ServerFailure(S.current.unexpected_error));
-    }
+      ),
+      methodName: "AuthRepoImpl.signInWithEmailAndPassword",
+    );
   }
 
   @override
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    return await _executeAuthOperation(
+      () => _remoteDataSource.signInWithGoogle(),
+      methodName: "AuthRepoImpl.signInWithGoogle",
+    );
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    return await _executeAuthOperation(
+      () => _remoteDataSource.signInWithFacebook(),
+      methodName: "AuthRepoImpl.signInWithFacebook",
+    );
+  }
+
+  Future<Either<Failure, UserEntity>> _executeAuthOperation(
+    Future<UserModel> Function() operation, {
+    required String methodName,
+  }) async {
     try {
-      final response = await _remoteDataSource.signInWithGoogle();
-      return Right(response.toEntity());
+      final userModel = await operation();
+      return Right(userModel.toEntity());
     } on CustomException catch (e) {
       return Left(ServerFailure(e.message));
     } catch (e, stackTrace) {
-      log(
-        'AuthRepoImpl.signInWithEmailAndPassword',
-        error: e,
-        stackTrace: stackTrace,
-      );
+      log('AuthRepoImpl.$methodName', error: e, stackTrace: stackTrace);
 
       return Left(ServerFailure(S.current.unexpected_error));
     }

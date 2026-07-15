@@ -16,6 +16,14 @@ class UserModel {
     );
   }
 
+  static UserModel toUserModel(User user) {
+  return UserModel(
+    uid: user.uid,
+    email: user.email ?? '',
+    name: user.displayName ?? '',
+  );
+}
+
 
   factory UserModel.fromFirebaseUser(User user) {
     return UserModel(

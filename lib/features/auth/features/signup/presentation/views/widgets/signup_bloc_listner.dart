@@ -56,7 +56,10 @@ class SignUpBlocListner extends StatelessWidget {
               context.pop();
               context.pushNamedAndRemoveAll(AppRoutes.login);
             },
-            child: Text(S.of(context).sign_in_now, style: TextStyles.semiBold13),
+            child: Text(
+              S.of(context).sign_in_now,
+              style: TextStyles.semiBold13,
+            ),
           ),
         ],
       ),

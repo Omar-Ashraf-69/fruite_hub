@@ -37,6 +37,8 @@ class FirebaseExceptionMapper {
 
       case 'requires-recent-login':
         return S.current.requires_recent_login;
+      case 'account-exists-with-different-credential':
+        return S.current.account_exists_with_different_credential;
 
       default:
         return S.current.unexpected_error;

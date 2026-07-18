@@ -88,6 +88,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_with_google": MessageLookupByLibrary.simpleMessage(
       "Login with Google",
     ),
+    "no_internet_connection": MessageLookupByLibrary.simpleMessage(
+      "No internet connection",
+    ),
+    "no_internet_connection_message": MessageLookupByLibrary.simpleMessage(
+      "Please check your internet connection and try again",
+    ),
     "on_boarding_title_1": MessageLookupByLibrary.simpleMessage(
       "Discover a unique shopping experience with FruitHUB. Explore our wide selection of premium fresh fruits and get the best offers and high quality.",
     ),
@@ -119,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_enter_a_valid_password": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid password",
     ),
+    "request_timeout": MessageLookupByLibrary.simpleMessage("Timeout"),
     "requires_recent_login": MessageLookupByLibrary.simpleMessage(
       "Please sign in again and try again",
     ),

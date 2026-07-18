@@ -71,5 +71,10 @@
 
   "google_sign_in_cancelled":"Google sign-in was cancelled.",
   "facebook_sign_in_cancelled":"Facebook sign-in was cancelled.",
-  "account_exists_with_different_credential": "An account with this email already exists. Please sign in using your previous login method."
+  "account_exists_with_different_credential": "An account with this email already exists. Please sign in using your previous login method.",
+
+
+  "no_internet_connection": "No internet connection",
+  "no_internet_connection_message": "Please check your internet connection and try again",
+  "request_timeout": "Timeout"
 }

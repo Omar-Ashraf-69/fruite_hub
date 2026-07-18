@@ -589,6 +589,31 @@ class S {
       args: [],
     );
   }
+
+  /// `No internet connection`
+  String get no_internet_connection {
+    return Intl.message(
+      'No internet connection',
+      name: 'no_internet_connection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your internet connection and try again`
+  String get no_internet_connection_message {
+    return Intl.message(
+      'Please check your internet connection and try again',
+      name: 'no_internet_connection_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Timeout`
+  String get request_timeout {
+    return Intl.message('Timeout', name: 'request_timeout', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

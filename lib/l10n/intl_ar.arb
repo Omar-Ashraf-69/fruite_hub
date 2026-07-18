@@ -73,6 +73,11 @@
 
   "google_sign_in_cancelled":"تم إلغاء تسجيل الدخول إلى حساب جوجل",
   "facebook_sign_in_cancelled":"تم إلغاء تسجيل الدخول إلى حساب فيسبوك",
-  "account_exists_with_different_credential": "يوجد حساب بهذا البريد الإلكتروني بالفعل. يرجى تسجيل الدخول باستخدام الطريقة السابقة."
+  "account_exists_with_different_credential": "يوجد حساب بهذا البريد الإلكتروني بالفعل. يرجى تسجيل الدخول باستخدام الطريقة السابقة.",
+
+
+  "no_internet_connection": "لا يوجد اتصال بالانترنت",
+  "no_internet_connection_message": "يرجى التحقق من اتصالك بالانترنت والمحاولة مرة اخرى",
+  "request_timeout": "انتهت مهلة الاتصال. يرجى المحاولة مرة اخرى"
 
 }

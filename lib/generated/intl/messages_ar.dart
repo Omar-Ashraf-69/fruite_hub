@@ -82,6 +82,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_with_google": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول باستخدام جوجل",
     ),
+    "no_internet_connection": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد اتصال بالانترنت",
+    ),
+    "no_internet_connection_message": MessageLookupByLibrary.simpleMessage(
+      "يرجى التحقق من اتصالك بالانترنت والمحاولة مرة اخرى",
+    ),
     "on_boarding_title_1": MessageLookupByLibrary.simpleMessage(
       "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الفاخرة واحصل على أفضل العروض وأعلى جودة.",
     ),
@@ -112,6 +118,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "please_enter_a_valid_password": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال كلمة مرور صالحة",
+    ),
+    "request_timeout": MessageLookupByLibrary.simpleMessage(
+      "انتهت مهلة الاتصال. يرجى المحاولة مرة اخرى",
     ),
     "requires_recent_login": MessageLookupByLibrary.simpleMessage(
       "يرجى تسجيل الدخول مرة أخرى ثم إعادة المحاولة",

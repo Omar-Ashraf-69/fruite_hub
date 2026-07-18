@@ -76,5 +76,22 @@
 
   "no_internet_connection": "No internet connection",
   "no_internet_connection_message": "Please check your internet connection and try again",
-  "request_timeout": "Timeout"
+  "request_timeout": "Timeout",
+  "watermelon": "Watermelon",
+  "currency": "EGP",
+  "kg": "kg",
+  "feature_item": "Feature Item",
+  "offer": "Offer",
+  "shop_now": "Shop Now",
+  "see_all": "See All",
+  "search_for": "Search for ...",
+  "most_popular": "Most Popular",
+  "products_view": "Products screen",
+  "cart_view": "Cart screen",
+  "profile_view": "Profile screen",
+  "home": "Home",
+  "cart": "Cart",
+  "profile": "Profile",
+  "products": "Products",
+  "product": "Product"
 }

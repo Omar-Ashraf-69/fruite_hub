@@ -614,6 +614,116 @@ class S {
   String get request_timeout {
     return Intl.message('Timeout', name: 'request_timeout', desc: '', args: []);
   }
+
+  /// `Watermelon`
+  String get watermelon {
+    return Intl.message('Watermelon', name: 'watermelon', desc: '', args: []);
+  }
+
+  /// `EGP`
+  String get currency {
+    return Intl.message('EGP', name: 'currency', desc: '', args: []);
+  }
+
+  /// `kg`
+  String get kg {
+    return Intl.message('kg', name: 'kg', desc: '', args: []);
+  }
+
+  /// `Feature Item`
+  String get feature_item {
+    return Intl.message(
+      'Feature Item',
+      name: 'feature_item',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offer`
+  String get offer {
+    return Intl.message('Offer', name: 'offer', desc: '', args: []);
+  }
+
+  /// `Shop Now`
+  String get shop_now {
+    return Intl.message('Shop Now', name: 'shop_now', desc: '', args: []);
+  }
+
+  /// `See All`
+  String get see_all {
+    return Intl.message('See All', name: 'see_all', desc: '', args: []);
+  }
+
+  /// `Search for ...`
+  String get search_for {
+    return Intl.message(
+      'Search for ...',
+      name: 'search_for',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Most Popular`
+  String get most_popular {
+    return Intl.message(
+      'Most Popular',
+      name: 'most_popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Products screen`
+  String get products_view {
+    return Intl.message(
+      'Products screen',
+      name: 'products_view',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart screen`
+  String get cart_view {
+    return Intl.message('Cart screen', name: 'cart_view', desc: '', args: []);
+  }
+
+  /// `Profile screen`
+  String get profile_view {
+    return Intl.message(
+      'Profile screen',
+      name: 'profile_view',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Cart`
+  String get cart {
+    return Intl.message('Cart', name: 'cart', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
+  }
+
+  /// `Products`
+  String get products {
+    return Intl.message('Products', name: 'products', desc: '', args: []);
+  }
+
+  /// `Product`
+  String get product {
+    return Intl.message('Product', name: 'product', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "by_continuing_you_agree_to_our": MessageLookupByLibrary.simpleMessage(
       "By creating an account, you agree to our ",
     ),
+    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "cart_view": MessageLookupByLibrary.simpleMessage("Cart screen"),
     "check_your_internet_connection": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection",
     ),
@@ -39,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "The request timed out. Please try again",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "data_already_exists": MessageLookupByLibrary.simpleMessage(
       "The data already exists",
     ),
@@ -64,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "facebook_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
       "Facebook sign-in was cancelled.",
     ),
+    "feature_item": MessageLookupByLibrary.simpleMessage("Feature Item"),
     "file_access_denied": MessageLookupByLibrary.simpleMessage(
       "You don\'t have permission to access this file",
     ),
@@ -78,9 +82,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Google sign-in was cancelled.",
     ),
     "got_it": MessageLookupByLibrary.simpleMessage("Got it"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "invalid_credentials": MessageLookupByLibrary.simpleMessage(
       "The email or password is incorrect",
     ),
+    "kg": MessageLookupByLibrary.simpleMessage("kg"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_with_facebook": MessageLookupByLibrary.simpleMessage(
       "Login with Facebook",
@@ -88,12 +94,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_with_google": MessageLookupByLibrary.simpleMessage(
       "Login with Google",
     ),
+    "most_popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
     "no_internet_connection": MessageLookupByLibrary.simpleMessage(
       "No internet connection",
     ),
     "no_internet_connection_message": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection and try again",
     ),
+    "offer": MessageLookupByLibrary.simpleMessage("Offer"),
     "on_boarding_title_1": MessageLookupByLibrary.simpleMessage(
       "Discover a unique shopping experience with FruitHUB. Explore our wide selection of premium fresh fruits and get the best offers and high quality.",
     ),
@@ -125,6 +133,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_enter_a_valid_password": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid password",
     ),
+    "product": MessageLookupByLibrary.simpleMessage("Product"),
+    "products": MessageLookupByLibrary.simpleMessage("Products"),
+    "products_view": MessageLookupByLibrary.simpleMessage("Products screen"),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "profile_view": MessageLookupByLibrary.simpleMessage("Profile screen"),
     "request_timeout": MessageLookupByLibrary.simpleMessage("Timeout"),
     "requires_recent_login": MessageLookupByLibrary.simpleMessage(
       "Please sign in again and try again",
@@ -133,9 +146,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "The resource limit has been exceeded",
     ),
     "search_and_shop": MessageLookupByLibrary.simpleMessage("Search and Shop"),
+    "search_for": MessageLookupByLibrary.simpleMessage("Search for ..."),
+    "see_all": MessageLookupByLibrary.simpleMessage("See All"),
     "service_unavailable": MessageLookupByLibrary.simpleMessage(
       "The service is currently unavailable",
     ),
+    "shop_now": MessageLookupByLibrary.simpleMessage("Shop Now"),
     "sign_in_now": MessageLookupByLibrary.simpleMessage("Sign In Now"),
     "sing_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
@@ -166,6 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "user_not_found": MessageLookupByLibrary.simpleMessage(
       "No account found with this email address",
     ),
+    "watermelon": MessageLookupByLibrary.simpleMessage("Watermelon"),
     "weak_password": MessageLookupByLibrary.simpleMessage(
       "The password is too weak",
     ),

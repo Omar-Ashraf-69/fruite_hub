@@ -24,57 +24,67 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account_exists_with_different_credential":
         MessageLookupByLibrary.simpleMessage(
-          "يوجد حساب بهذا البريد الإلكتروني بالفعل. يرجى تسجيل الدخول باستخدام الطريقة السابقة.",
+          "يوجد حساب بالفعل بهذا البريد الإلكتروني. يرجى تسجيل الدخول باستخدام طريقة تسجيل الدخول السابقة الخاصة بك.",
         ),
     "already_have_an_account": MessageLookupByLibrary.simpleMessage(
-      "تمتلك حساب بالفعل؟",
+      "لديك حساب بالفعل؟",
     ),
     "by_continuing_you_agree_to_our": MessageLookupByLibrary.simpleMessage(
-      "من خلال المتابعة، فإنك توافق على ",
+      "بإنشاء حساب، فإنك توافق على ",
     ),
+    "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+    "cart_view": MessageLookupByLibrary.simpleMessage("شاشة السلة"),
     "check_your_internet_connection": MessageLookupByLibrary.simpleMessage(
-      "يرجى التحقق من اتصالك بالإنترنت",
+      "يرجى التحقق من الاتصال بالإنترنت",
     ),
     "connection_timeout": MessageLookupByLibrary.simpleMessage(
-      "انتهت مهلة الاتصال. يرجى المحاولة مرة أخرى",
+      "انتهت مهلة الطلب، يرجى المحاولة مرة أخرى",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "data_already_exists": MessageLookupByLibrary.simpleMessage(
       "البيانات موجودة بالفعل",
     ),
     "data_not_found": MessageLookupByLibrary.simpleMessage(
-      "البيانات المطلوبة غير موجودة",
+      "لم يتم العثور على البيانات المطلوبة",
     ),
     "database_error": MessageLookupByLibrary.simpleMessage(
-      "حدث خطأ أثناء التعامل مع قاعدة البيانات",
+      "حدث خطأ أثناء الاتصال بقاعدة البيانات",
     ),
     "dont_have_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "email_already_in_use": MessageLookupByLibrary.simpleMessage(
-      "هذا البريد الإلكتروني مستخدم بالفعل",
+      "البريد الإلكتروني مستخدم بالفعل",
     ),
     "enter_your_email_address": MessageLookupByLibrary.simpleMessage(
-      "البريد الإلكتروني",
+      "أدخل البريد الإلكتروني",
     ),
-    "enter_your_name": MessageLookupByLibrary.simpleMessage("الإسم كامل"),
-    "enter_your_password": MessageLookupByLibrary.simpleMessage("كلمة المرور "),
+    "enter_your_name": MessageLookupByLibrary.simpleMessage("أدخل اسمك"),
+    "enter_your_password": MessageLookupByLibrary.simpleMessage(
+      "أدخل كلمة المرور",
+    ),
     "facebook_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
-      "تم إلغاء تسجيل الدخول إلى حساب فيسبوك",
+      "تم إلغاء تسجيل الدخول باستخدام فيسبوك.",
     ),
+    "feature_item": MessageLookupByLibrary.simpleMessage("عروض العيد"),
     "file_access_denied": MessageLookupByLibrary.simpleMessage(
-      "ليس لديك صلاحية للوصول إلى هذا الملف",
+      "ليس لديك الصلاحية للوصول إلى هذا الملف",
     ),
     "file_corrupted": MessageLookupByLibrary.simpleMessage("الملف تالف"),
-    "file_not_found": MessageLookupByLibrary.simpleMessage("الملف غير موجود"),
+    "file_not_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على الملف",
+    ),
     "forget_password": MessageLookupByLibrary.simpleMessage(
-      "نسيت كلمة المرور؟",
+      "هل نسيت كلمة المرور؟",
     ),
     "google_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
-      "تم إلغاء تسجيل الدخول إلى حساب جوجل",
+      "تم إلغاء تسجيل الدخول باستخدام جوجل.",
     ),
-    "got_it": MessageLookupByLibrary.simpleMessage("حسناً"),
+    "got_it": MessageLookupByLibrary.simpleMessage("حسناً، فهمت"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "invalid_credentials": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني أو كلمة المرور غير صحيحة",
     ),
+    "kg": MessageLookupByLibrary.simpleMessage("كيلو"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_with_facebook": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول باستخدام فيسبوك",
@@ -82,91 +92,100 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_with_google": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول باستخدام جوجل",
     ),
+    "most_popular": MessageLookupByLibrary.simpleMessage("الأكثر مبيعاً"),
     "no_internet_connection": MessageLookupByLibrary.simpleMessage(
-      "لا يوجد اتصال بالانترنت",
+      "لا يوجد اتصال بالإنترنت",
     ),
     "no_internet_connection_message": MessageLookupByLibrary.simpleMessage(
-      "يرجى التحقق من اتصالك بالانترنت والمحاولة مرة اخرى",
+      "يرجى التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى",
     ),
+    "offer": MessageLookupByLibrary.simpleMessage("خصم"),
     "on_boarding_title_1": MessageLookupByLibrary.simpleMessage(
-      "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الفاخرة واحصل على أفضل العروض وأعلى جودة.",
+      "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.",
     ),
     "on_boarding_title_2": MessageLookupByLibrary.simpleMessage(
-      "نقدم لك أجود أنواع الفواكه المختارة بعناية. اطّلع على التفاصيل والصور والتقييمات لتضمن اختيار الفاكهة المثالية.",
+      "نقدم لك أجود أنواع الفواكه المختارة بعناية. اطلع على التفاصيل، الصور، والتقييمات لتضمن اختيار الفاكهة المثالية.",
     ),
     "operation_cancelled": MessageLookupByLibrary.simpleMessage(
       "تم إلغاء العملية",
     ),
     "operation_failed_retry": MessageLookupByLibrary.simpleMessage(
-      "فشلت العملية. يرجى المحاولة مرة أخرى",
+      "فشلت العملية، يرجى المحاولة مرة أخرى",
     ),
     "operation_not_allowed": MessageLookupByLibrary.simpleMessage(
       "هذه العملية غير متاحة حالياً",
     ),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
     "permission_denied": MessageLookupByLibrary.simpleMessage(
-      "ليس لديك صلاحية لتنفيذ هذه العملية",
+      "ليس لديك الصلاحية لإجراء هذه العملية",
     ),
     "please_accept_terms_and_conditions": MessageLookupByLibrary.simpleMessage(
       "يرجى الموافقة على الشروط والأحكام",
     ),
     "please_enter_a_valid_email": MessageLookupByLibrary.simpleMessage(
-      "يرجى إدخال بريد إلكتروني صالح",
+      "يرجى إدخال بريد إلكتروني صحيح",
     ),
     "please_enter_a_valid_name": MessageLookupByLibrary.simpleMessage(
-      "يرجى إدخال اسم صالح",
+      "يرجى إدخال اسم صحيح",
     ),
     "please_enter_a_valid_password": MessageLookupByLibrary.simpleMessage(
-      "يرجى إدخال كلمة مرور صالحة",
+      "يرجى إدخال كلمة مرور صحيحة",
     ),
-    "request_timeout": MessageLookupByLibrary.simpleMessage(
-      "انتهت مهلة الاتصال. يرجى المحاولة مرة اخرى",
-    ),
+    "product": MessageLookupByLibrary.simpleMessage("المنتج"),
+    "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
+    "products_view": MessageLookupByLibrary.simpleMessage("شاشة المنتجات"),
+    "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "profile_view": MessageLookupByLibrary.simpleMessage("شاشة الملف الشخصي"),
+    "request_timeout": MessageLookupByLibrary.simpleMessage("انتهت مهلة الطلب"),
     "requires_recent_login": MessageLookupByLibrary.simpleMessage(
-      "يرجى تسجيل الدخول مرة أخرى ثم إعادة المحاولة",
+      "يرجى تسجيل الدخول مجدداً ثم المحاولة مرة أخرى",
     ),
     "resource_exhausted": MessageLookupByLibrary.simpleMessage(
-      "تم تجاوز الحد المسموح به",
+      "تم تجاوز الحد المسموح به للموارد",
     ),
     "search_and_shop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
+    "search_for": MessageLookupByLibrary.simpleMessage("ابحث عن....."),
+    "see_all": MessageLookupByLibrary.simpleMessage("المزيد"),
     "service_unavailable": MessageLookupByLibrary.simpleMessage(
       "الخدمة غير متاحة حالياً",
     ),
+    "shop_now": MessageLookupByLibrary.simpleMessage("تسوق الآن"),
     "sign_in_now": MessageLookupByLibrary.simpleMessage("سجل الدخول الآن"),
     "sing_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "something_went_wrong": MessageLookupByLibrary.simpleMessage(
-      "حدث خطأ ما، الرجاء المحاولة مرة أخرى",
+      "حدث خطأ ما، يرجى المحاولة مرة أخرى",
     ),
     "start_shopping": MessageLookupByLibrary.simpleMessage("ابدأ التسوق"),
     "storage_error": MessageLookupByLibrary.simpleMessage(
-      "حدث خطأ أثناء رفع أو تنزيل الملف",
+      "حدث خطأ أثناء رفع أو تحميل الملف",
     ),
     "storage_quota_exceeded": MessageLookupByLibrary.simpleMessage(
-      "تم تجاوز الحد المسموح به للتخزين",
+      "تم تجاوز المساحة التخزينية المتاحة",
     ),
     "terms_and_conditions": MessageLookupByLibrary.simpleMessage(
-      "الشروط والأحكام",
+      "الشروط والأحكام الخاصة بنا",
     ),
     "title": MessageLookupByLibrary.simpleMessage("مرحباً"),
-    "to_fruit_hub": MessageLookupByLibrary.simpleMessage("اذهب إلى Fruit Hub"),
+    "to_fruit_hub": MessageLookupByLibrary.simpleMessage("في فروت هاب"),
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
-      "تمت المحاولة عدة مرات. يرجى المحاولة لاحقاً",
+      "محاولات كثيرة جداً، يرجى المحاولة لاحقاً",
     ),
     "unexpected_error": MessageLookupByLibrary.simpleMessage(
-      "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى",
+      "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى",
     ),
     "user_disabled": MessageLookupByLibrary.simpleMessage(
       "تم تعطيل هذا الحساب",
     ),
     "user_not_found": MessageLookupByLibrary.simpleMessage(
-      "لا يوجد حساب بهذا البريد الإلكتروني",
+      "لم يتم العثور على حساب بهذا البريد الإلكتروني",
     ),
+    "watermelon": MessageLookupByLibrary.simpleMessage("بطيخ"),
     "weak_password": MessageLookupByLibrary.simpleMessage(
-      "كلمة المرور ضعيفة جداً",
+      "كلمة المرور ضعيفة للغاية",
     ),
-    "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
-    "welcome_to": MessageLookupByLibrary.simpleMessage("مرحباً بك في "),
+    "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك "),
+    "welcome_to": MessageLookupByLibrary.simpleMessage("مرحباً بك في"),
     "wrong_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور غير صحيحة",
     ),

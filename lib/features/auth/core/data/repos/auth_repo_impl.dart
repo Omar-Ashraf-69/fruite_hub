@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
+import 'package:fruit_hub/core/helpers/local_user_data.dart';
 import 'package:fruit_hub/core/services/user_remote_data_source.dart';
 import 'package:fruit_hub/features/auth/core/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/core/domain/entites/user_entity.dart';
@@ -75,6 +76,7 @@ class AuthRepoImpl implements AuthRepo {
       );
       if (!isUserExists) {
         await _userRemoteDataSourceRepo.saveUser(userModel);
+        await LocalUserDataSource.saveUserLocally(userModel);
       } else {
         userModel = (await _userRemoteDataSourceRepo.getUserData(
           userModel.uid,
@@ -97,6 +99,7 @@ class AuthRepoImpl implements AuthRepo {
     try {
       final userModel = await operation();
       await _userRemoteDataSourceRepo.saveUser(userModel);
+      await LocalUserDataSource.saveUserLocally(userModel);
       return Right(userModel.toEntity());
     } on CustomException catch (e) {
       log('AuthRepoImpl.$methodName', error: e);

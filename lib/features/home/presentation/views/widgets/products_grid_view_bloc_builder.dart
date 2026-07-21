@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
@@ -16,7 +14,6 @@ class ProductsGridViewBlocBuilder extends StatelessWidget {
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
         if (state is ProductsSuccess) {
-          log(state.products.toString());
           return ProductsGridView(products: state.products);
         } else if (state is ProductsFailure) {
           return CustomErrorWidget(text: state.errMessage);

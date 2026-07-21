@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/home/data/models/navbar_data_model.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/bottom_navbar_item.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:fruit_hub/features/products/presentation/views/products_view.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
 class HomeView extends StatefulWidget {
@@ -21,16 +22,17 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     context.read<ProductsCubit>().getProducts();
-    
+
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: switch (_currentIndex) {
           0 => const HomeViewBody(),
-          1 => Center(child: Text(S.of(context).products_view)),
+          1 => const ProductsView(),
           2 => Center(child: Text(S.of(context).cart_view)),
           3 => Center(child: Text(S.of(context).profile_view)),
           _ => const HomeViewBody(),

@@ -91,6 +91,9 @@ class AuthRepoImpl implements AuthRepo {
                 ))
                 as Map<String, dynamic>;
         userModel = UserModel.fromJson(res);
+        if (!await LocalUserDataSource.checkUserExists()) {
+          await LocalUserDataSource.saveUserLocally(userModel);
+        }
       }
       return Right(userModel.toEntity());
     } on CustomException catch (e) {

@@ -12,7 +12,9 @@ class MostPopularHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          
+        },
         child: Row(
           children: [
             Text(

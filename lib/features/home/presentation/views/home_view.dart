@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/constants/assets.dart';
 import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/core/di/dependecny_injection.dart';
 import 'package:fruit_hub/core/repos/products_repo/products_repo.dart';
+import 'package:fruit_hub/features/cart/presentation/views/cart_view.dart';
 import 'package:fruit_hub/features/home/data/models/navbar_data_model.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/bottom_navbar_item.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_view_body.dart';
@@ -44,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
                   ProductsCubit(getIt<ProductsRepo>())..getProducts(),
               child: const ProductsView(),
             ),
-            Center(child: Text(S.of(context).cart_view)),
+            CartView(),
             Center(child: Text(S.of(context).profile_view)),
           ],
         ),

@@ -87,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_credentials": MessageLookupByLibrary.simpleMessage(
       "The email or password is incorrect",
     ),
+    "items_in_cart": MessageLookupByLibrary.simpleMessage("items in cart"),
     "kg": MessageLookupByLibrary.simpleMessage("kg"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_with_facebook": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "This operation is currently unavailable",
     ),
     "or": MessageLookupByLibrary.simpleMessage("Or"),
+    "pay": MessageLookupByLibrary.simpleMessage("Pay"),
     "permission_denied": MessageLookupByLibrary.simpleMessage(
       "You don\'t have permission to perform this operation",
     ),
@@ -175,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "Too many attempts. Please try again later",
     ),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "unexpected_error": MessageLookupByLibrary.simpleMessage(
       "An unexpected error occurred. Please try again",
     ),
@@ -193,5 +196,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrong_password": MessageLookupByLibrary.simpleMessage(
       "The password is incorrect",
     ),
+    "you_have": MessageLookupByLibrary.simpleMessage("You have"),
   };
 }

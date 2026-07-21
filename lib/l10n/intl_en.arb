@@ -97,5 +97,10 @@
 
   "product": "Product",
   "fruits": "Fruits",
-  "results": "Results"
+  "results": "Results",
+
+  "pay": "Pay",
+  "you_have":"You have",
+  "items_in_cart":"items in cart",
+  "total":"Total"
 }

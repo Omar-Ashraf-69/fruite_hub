@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_credentials": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني أو كلمة المرور غير صحيحة",
     ),
+    "items_in_cart": MessageLookupByLibrary.simpleMessage("عنصر في سلة التسوق"),
     "kg": MessageLookupByLibrary.simpleMessage("كيلو"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_with_facebook": MessageLookupByLibrary.simpleMessage(
@@ -117,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "هذه العملية غير متاحة حالياً",
     ),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
+    "pay": MessageLookupByLibrary.simpleMessage("ادفع"),
     "permission_denied": MessageLookupByLibrary.simpleMessage(
       "ليس لديك الصلاحية لإجراء هذه العملية",
     ),
@@ -173,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "محاولات كثيرة جداً، يرجى المحاولة لاحقاً",
     ),
+    "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "unexpected_error": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى",
     ),
@@ -191,5 +194,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrong_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور غير صحيحة",
     ),
+    "you_have": MessageLookupByLibrary.simpleMessage("لديك"),
   };
 }

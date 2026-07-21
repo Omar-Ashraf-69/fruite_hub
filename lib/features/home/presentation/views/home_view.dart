@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/constants/assets.dart';
 import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
+import 'package:fruit_hub/core/di/dependecny_injection.dart';
+import 'package:fruit_hub/core/repos/products_repo/products_repo.dart';
 import 'package:fruit_hub/features/home/data/models/navbar_data_model.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/bottom_navbar_item.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_view_body.dart';
@@ -21,8 +23,6 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   void initState() {
-    context.read<ProductsCubit>().getProducts();
-
     super.initState();
   }
 
@@ -30,13 +30,24 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: switch (_currentIndex) {
-          0 => const HomeViewBody(),
-          1 => const ProductsView(),
-          2 => Center(child: Text(S.of(context).cart_view)),
-          3 => Center(child: Text(S.of(context).profile_view)),
-          _ => const HomeViewBody(),
-        },
+        child: IndexedStack(
+          index: _currentIndex,
+          children: [
+            BlocProvider(
+              create: (context) =>
+                  ProductsCubit(getIt<ProductsRepo>())
+                    ..getBestSellingProducts(),
+              child: HomeViewBody(onSeeAllPressed: () => _changeTab(1)),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  ProductsCubit(getIt<ProductsRepo>())..getProducts(),
+              child: const ProductsView(),
+            ),
+            Center(child: Text(S.of(context).cart_view)),
+            Center(child: Text(S.of(context).profile_view)),
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         height: 70.h,
@@ -64,6 +75,14 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
     );
+  }
+
+  void _changeTab(int index) {
+    if (_currentIndex == index) return;
+
+    setState(() {
+      _currentIndex = index;
+    });
   }
 
   Widget _buildNavItem(int index, NavigationItem item) {

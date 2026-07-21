@@ -7,7 +7,8 @@ import 'package:fruit_hub/features/home/presentation/views/widgets/products_grid
 import 'package:fruit_hub/features/home/presentation/views/widgets/search_text_field.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, required this.onSeeAllPressed});
+  final VoidCallback onSeeAllPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class HomeViewBody extends StatelessWidget {
                 SliverToBoxAdapter(child: verticalSpace(24)),
                 SliverToBoxAdapter(child: BannerListView()),
                 SliverToBoxAdapter(child: verticalSpace(24)),
-                MostPopularHeader(),
+                MostPopularHeader(onTap: onSeeAllPressed),
                 SliverToBoxAdapter(child: verticalSpace(12)),
                 ProductsGridViewBlocBuilder(),
               ],

@@ -78,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "The file was not found",
     ),
     "forget_password": MessageLookupByLibrary.simpleMessage("Forget Password?"),
+    "fruits": MessageLookupByLibrary.simpleMessage("Fruits"),
     "google_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
       "Google sign-in was cancelled.",
     ),
@@ -145,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resource_exhausted": MessageLookupByLibrary.simpleMessage(
       "The resource limit has been exceeded",
     ),
+    "results": MessageLookupByLibrary.simpleMessage("Results"),
     "search_and_shop": MessageLookupByLibrary.simpleMessage("Search and Shop"),
     "search_for": MessageLookupByLibrary.simpleMessage("Search for ..."),
     "see_all": MessageLookupByLibrary.simpleMessage("See All"),

@@ -93,5 +93,9 @@
   "cart": "Cart",
   "profile": "Profile",
   "products": "Products",
-  "product": "Product"
+
+
+  "product": "Product",
+  "fruits": "Fruits",
+  "results": "Results"
 }

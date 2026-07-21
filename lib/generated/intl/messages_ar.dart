@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "forget_password": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
+    "fruits": MessageLookupByLibrary.simpleMessage("فواكه"),
     "google_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
       "تم إلغاء تسجيل الدخول باستخدام جوجل.",
     ),
@@ -143,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resource_exhausted": MessageLookupByLibrary.simpleMessage(
       "تم تجاوز الحد المسموح به للموارد",
     ),
+    "results": MessageLookupByLibrary.simpleMessage("نتائج"),
     "search_and_shop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
     "search_for": MessageLookupByLibrary.simpleMessage("ابحث عن....."),
     "see_all": MessageLookupByLibrary.simpleMessage("المزيد"),

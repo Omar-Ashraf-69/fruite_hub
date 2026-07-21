@@ -43,7 +43,12 @@ class PopularItemWidget extends StatelessWidget {
                       ),
                     ),
                   )
-                : Container(color: Colors.grey, height: 100, width: 100),
+                : Container(
+                    margin: const EdgeInsets.all(20),
+                    color: AppColors.lighterGray,
+                    height: 20.h,
+                    width: 20.w,
+                  ),
             // child: Image.asset(
             //   Assets.imagesWatermelonTest,
             //   fit: BoxFit.contain,

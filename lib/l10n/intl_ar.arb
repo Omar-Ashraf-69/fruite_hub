@@ -86,5 +86,8 @@
   "cart": "السلة",
   "profile": "الملف الشخصي",
   "products": "المنتجات",
-  "product": "المنتج"
+  "product": "المنتج",
+
+  "fruits": "فواكه",
+  "results": "نتائج"
 }

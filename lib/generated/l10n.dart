@@ -724,6 +724,16 @@ class S {
   String get product {
     return Intl.message('Product', name: 'product', desc: '', args: []);
   }
+
+  /// `Fruits`
+  String get fruits {
+    return Intl.message('Fruits', name: 'fruits', desc: '', args: []);
+  }
+
+  /// `Results`
+  String get results {
+    return Intl.message('Results', name: 'results', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

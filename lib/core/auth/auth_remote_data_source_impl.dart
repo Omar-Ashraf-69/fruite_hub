@@ -17,7 +17,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       email: email,
       password: password,
     );
-    return UserModel(name: name, email: email, uid: user.uid);
+    return UserModel(name: name, email: email, uId: user.uid);
   }
 
   @override
@@ -34,7 +34,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       email: email,
       password: password,
     );
-    return UserModel(email: email, uid: user.uid, name: user.displayName ?? '');
+    return UserModel(email: email, uId: user.uid, name: user.displayName ?? '');
   }
 
   @override

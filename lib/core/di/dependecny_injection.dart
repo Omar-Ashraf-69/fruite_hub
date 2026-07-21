@@ -5,7 +5,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source_impl.dart';
 import 'package:fruit_hub/core/auth/firebase_auth_service.dart';
-import 'package:fruit_hub/core/services/user_remote_data_source.dart';
+import 'package:fruit_hub/core/repos/products_repo/products_repo.dart';
+import 'package:fruit_hub/core/repos/products_repo/products_repo_impl.dart';
 import 'package:fruit_hub/core/services/firestore_service.dart';
 import 'package:fruit_hub/features/auth/core/data/repos/auth_repo_impl.dart';
 import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
@@ -54,12 +55,14 @@ void _registerAuthDependencies() {
       firebaseAuthService: getIt<FirebaseAuthService>(),
     ),
   );
-
+  getIt.registerLazySingleton<ProductsRepo>(
+    () => ProductsRepoImpl(dataService: getIt<FirestoreService>()),
+  );
   // Repositories
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImpl(
       remoteDataSource: getIt<AuthRemoteDataSource>(),
-      userRemoteDataSourceRepo: getIt<UserRemoteDataSource>(),
+      databaseService: getIt<FirestoreService>(),
     ),
   );
 }
@@ -67,9 +70,5 @@ void _registerAuthDependencies() {
 void _registerRemoteDataSourceDependencies() {
   getIt.registerLazySingleton<FirestoreService>(
     () => FirestoreService(FirebaseFirestore.instance),
-  );
-
-  getIt.registerLazySingleton<UserRemoteDataSource>(
-    () => getIt<FirestoreService>(),
   );
 }

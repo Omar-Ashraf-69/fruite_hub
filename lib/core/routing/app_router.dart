@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/core/di/dependecny_injection.dart';
+import 'package:fruit_hub/core/repos/products_repo/products_repo.dart';
 import 'package:fruit_hub/core/routing/app_routes.dart';
 import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
 import 'package:fruit_hub/features/auth/features/login/presentation/cubit/login_cubit.dart';
@@ -29,8 +31,16 @@ class AppRouter {
             child: const SignUpView(),
           ),
         );
-        case AppRoutes.home:
-        return _buildRoute(const HomeView());
+      case AppRoutes.home:
+        return _buildRoute(
+          BlocProvider(
+            create: (context) => ProductsCubit(
+              getIt<ProductsRepo>(),
+            )
+            ,
+            child: const HomeView(),
+          ),
+        );
       default:
         return _buildRoute(
           Scaffold(

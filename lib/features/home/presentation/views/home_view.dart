@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/constants/assets.dart';
+import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/home/data/models/navbar_data_model.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/bottom_navbar_item.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_view_body.dart';
@@ -16,6 +18,12 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
 
+  @override
+  void initState() {
+    context.read<ProductsCubit>().getProducts();
+    
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

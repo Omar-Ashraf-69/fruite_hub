@@ -1,16 +1,14 @@
-
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/popular_item.dart';
 
-class PopularItemsGrid extends StatelessWidget {
-  const PopularItemsGrid({
-    super.key,
-  });
-
+class ProductsGridView extends StatelessWidget {
+  const ProductsGridView({super.key, required this.products});
+  final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
-      itemCount: 6, // Increased to see your scrolling in action!
+      itemCount: products.length, // Increased to see your scrolling in action!
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 10,

@@ -3,7 +3,7 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/banner_list_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_app_bar.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/most_popular_header.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/popular_items_grid.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/search_text_field.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -20,17 +20,13 @@ class HomeViewBody extends StatelessWidget {
           Expanded(
             child: CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(
-                  child: SearchTextField(),
-                ),
+                SliverToBoxAdapter(child: SearchTextField()),
                 SliverToBoxAdapter(child: verticalSpace(24)),
-                SliverToBoxAdapter(
-                  child: BannerListView(),
-                ),
+                SliverToBoxAdapter(child: BannerListView()),
                 SliverToBoxAdapter(child: verticalSpace(24)),
                 MostPopularHeader(),
                 SliverToBoxAdapter(child: verticalSpace(12)),
-                PopularItemsGrid(),
+                ProductsGridViewBlocBuilder(),
               ],
             ),
           ),
@@ -39,4 +35,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-

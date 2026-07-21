@@ -1,10 +1,11 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source.dart';
+import 'package:fruit_hub/core/constants/endpoints.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
 import 'package:fruit_hub/core/helpers/local_user_data.dart';
-import 'package:fruit_hub/core/services/user_remote_data_source.dart';
+import 'package:fruit_hub/core/services/data_service.dart';
 import 'package:fruit_hub/features/auth/core/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/core/domain/entites/user_entity.dart';
 import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
@@ -13,9 +14,9 @@ import 'package:fruit_hub/generated/l10n.dart';
 class AuthRepoImpl implements AuthRepo {
   const AuthRepoImpl({
     required this._remoteDataSource,
-    required this._userRemoteDataSourceRepo,
+    required this._databaseService,
   });
-  final UserRemoteDataSource _userRemoteDataSourceRepo;
+  final DatabaseService _databaseService;
   final AuthRemoteDataSource _remoteDataSource;
 
   @override
@@ -71,16 +72,25 @@ class AuthRepoImpl implements AuthRepo {
     UserModel userModel;
     try {
       userModel = await operation();
-      bool isUserExists = await _userRemoteDataSourceRepo.isUserExists(
-        userModel.uid,
+      bool isUserExists = await _databaseService.checkIfDataExists(
+        docuementId: userModel.uId,
+        path: BackendEndpoints.getUser,
       );
       if (!isUserExists) {
-        await _userRemoteDataSourceRepo.saveUser(userModel);
+        await _databaseService.addData(
+          path: BackendEndpoints.saveUser,
+          documentId: userModel.uId,
+          data: userModel.toJson(),
+        );
         await LocalUserDataSource.saveUserLocally(userModel);
       } else {
-        userModel = (await _userRemoteDataSourceRepo.getUserData(
-          userModel.uid,
-        ))!;
+        final res =
+            (await _databaseService.getData(
+                  docuementId: userModel.uId,
+                  path: BackendEndpoints.getUser,
+                ))
+                as Map<String, dynamic>;
+        userModel = UserModel.fromJson(res);
       }
       return Right(userModel.toEntity());
     } on CustomException catch (e) {
@@ -98,7 +108,11 @@ class AuthRepoImpl implements AuthRepo {
   }) async {
     try {
       final userModel = await operation();
-      await _userRemoteDataSourceRepo.saveUser(userModel);
+      await _databaseService.addData(
+        data: userModel.toJson(),
+        path: BackendEndpoints.saveUser,
+        documentId: userModel.uId,
+      );
       await LocalUserDataSource.saveUserLocally(userModel);
       return Right(userModel.toEntity());
     } on CustomException catch (e) {

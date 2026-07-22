@@ -35,6 +35,6 @@ class AppInitializer {
       return AppRoutes.login;
     }
 
-    return AppRoutes.home;
+    return AppRoutes.main;
   }
 }

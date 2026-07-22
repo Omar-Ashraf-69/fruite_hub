@@ -1,35 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/core/constants/assets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/cubits/cart_cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruit_hub/features/cart/presentation/views/widgets/cart_item_counter_header.dart';
 import 'package:fruit_hub/features/cart/presentation/views/widgets/cart_item_widget.dart';
 import 'package:fruit_hub/features/cart/presentation/views/widgets/pay_button.dart';
 
-class CartListView extends StatelessWidget {
-  const CartListView({super.key});
+class CartItemsList extends StatelessWidget {
+  const CartItemsList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                CartItemCounterHeader(),
-                for (int i = 0; i < 10; i++)
-                  CartItemWidget(
-                    image: Assets.imagesWatermelonTest,
-                    name: "Apple",
-                    weight: "1kg",
-                    price: 100,
-                    quantity: 2,
-                  ),
-              ],
-            ),
+          Column(
+            children: [
+              CartItemCounterHeader(),
+              Expanded(
+                child: CartItemsListView(cart: context.watch<CartCubit>().cart),
+              ),
+            ],
           ),
           PayButton(onPressed: () {}),
         ],
       ),
+    );
+  }
+}
+
+class CartItemsListView extends StatelessWidget {
+  const CartItemsListView({super.key, required this.cart});
+  final CartEntity cart;
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: cart.items.length,
+      itemBuilder: (context, index) =>
+          CartItemWidget(product: cart.items[index]),
     );
   }
 }

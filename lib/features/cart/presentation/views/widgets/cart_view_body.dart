@@ -9,7 +9,7 @@ class CartViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 18.0, right: 18, top: 18),
-      child: Column(children: [CartAppBar(), CartListView()]),
+      child: Column(children: [CartAppBar(), CartItemsList()]),
     );
   }
 }

@@ -3,11 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 
 class ItemCounterbutton extends StatelessWidget {
-  const ItemCounterbutton({super.key, required this.icon, this.onTap});
+  const ItemCounterbutton({super.key, required this.icon, this.onTap, this.color, this.iconColor});
 
   final IconData icon;
   final VoidCallback? onTap;
-
+  final Color? color;
+  final Color? iconColor;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -15,11 +16,11 @@ class ItemCounterbutton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(5.w),
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.lightPrimaryColor,
+          color:color ?? AppColors.lightPrimaryColor,
         ),
-        child: Icon(icon, size: 16.sp, color: AppColors.lightWhite),
+        child: Icon(icon, size: 16.sp, color:iconColor ?? AppColors.lightWhite),
       ),
     );
   }

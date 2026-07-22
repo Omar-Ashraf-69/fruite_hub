@@ -62,6 +62,7 @@ class GetStartedButtonWidget extends StatelessWidget {
                         PrefKeys.isOnboardingSeen,
                         true,
                       );
+                      // ignore: use_build_context_synchronously
                       context.pushNamedAndRemoveAll(AppRoutes.login);
                     },
                     child: Text(

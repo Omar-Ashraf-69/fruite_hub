@@ -759,6 +759,26 @@ class S {
   String get total {
     return Intl.message('Total', name: 'total', desc: '', args: []);
   }
+
+  /// `Product is added to cart`
+  String get product_is_added_to_cart {
+    return Intl.message(
+      'Product is added to cart',
+      name: 'product_is_added_to_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product is removed from cart`
+  String get product_is_removed_from_cart {
+    return Intl.message(
+      'Product is removed from cart',
+      name: 'product_is_removed_from_cart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -137,6 +137,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter a valid password",
     ),
     "product": MessageLookupByLibrary.simpleMessage("Product"),
+    "product_is_added_to_cart": MessageLookupByLibrary.simpleMessage(
+      "Product is added to cart",
+    ),
+    "product_is_removed_from_cart": MessageLookupByLibrary.simpleMessage(
+      "Product is removed from cart",
+    ),
     "products": MessageLookupByLibrary.simpleMessage("Products"),
     "products_view": MessageLookupByLibrary.simpleMessage("Products screen"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),

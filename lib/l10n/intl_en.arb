@@ -102,5 +102,8 @@
   "pay": "Pay",
   "you_have":"You have",
   "items_in_cart":"items in cart",
-  "total":"Total"
+  "total":"Total",
+
+  "product_is_added_to_cart":"Product is added to cart",
+  "product_is_removed_from_cart":"Product is removed from cart"
 }

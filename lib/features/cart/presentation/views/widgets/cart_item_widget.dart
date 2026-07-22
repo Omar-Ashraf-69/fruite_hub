@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,21 +7,14 @@ import 'package:fruit_hub/features/cart/domain/entities/cart_item_entity.dart';
 import 'package:fruit_hub/features/cart/presentation/cubit/cart_item_cubit.dart';
 import 'package:fruit_hub/features/cart/presentation/views/widgets/cart_delete_price_column.dart';
 import 'package:fruit_hub/features/cart/presentation/views/widgets/cart_item_details_column.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:fruit_hub/features/cart/presentation/views/widgets/cart_item_image.dart';
 
 class CartItemWidget extends StatelessWidget {
   const CartItemWidget({
     super.key,
     required this.product,
-    this.onAdd,
-    this.onRemove,
-    this.onDelete,
   });
   final CartItemEntity product;
-
-  final VoidCallback? onAdd;
-  final VoidCallback? onRemove;
-  final VoidCallback? onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -67,35 +59,6 @@ class CartItemWidget extends StatelessWidget {
           ],
         );
       },
-    );
-  }
-}
-
-class CartItemImage extends StatelessWidget {
-  const CartItemImage({super.key, required this.image});
-
-  final String image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 80.w,
-      padding: EdgeInsets.all(8.w),
-      decoration: BoxDecoration(
-        color: AppColors.lightWhite,
-        borderRadius: BorderRadius.circular(12.r),
-      ),
-      child: CachedNetworkImage(
-        imageUrl: image,
-        fit: BoxFit.cover,
-        placeholder: (context, url) => Center(
-          child: LoadingAnimationWidget.threeRotatingDots(
-            color: Colors.white,
-            size: 50.w,
-          ),
-        ),
-        errorWidget: (context, url, error) => Icon(Icons.error),
-      ),
     );
   }
 }

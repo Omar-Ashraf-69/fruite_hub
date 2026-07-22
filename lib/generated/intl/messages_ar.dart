@@ -135,6 +135,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "يرجى إدخال كلمة مرور صحيحة",
     ),
     "product": MessageLookupByLibrary.simpleMessage("المنتج"),
+    "product_is_added_to_cart": MessageLookupByLibrary.simpleMessage(
+      "تمت اضافة المنتج الى السلة",
+    ),
+    "product_is_removed_from_cart": MessageLookupByLibrary.simpleMessage(
+      "تم حذف المنتج من السلة",
+    ),
     "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "products_view": MessageLookupByLibrary.simpleMessage("شاشة المنتجات"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),

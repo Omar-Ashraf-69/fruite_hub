@@ -94,7 +94,10 @@
   "pay": "ادفع",
   "you_have": "لديك",
   "items_in_cart": "عنصر في سلة التسوق",
-  "total": "الإجمالي"
+  "total": "الإجمالي",
+  "process_is_done":"'تمت العملية بنجاح'",
+  "product_is_removed_from_cart": "تم حذف المنتج من السلة",
+  "product_is_added_to_cart": "تمت اضافة المنتج الى السلة"
 
 
 }

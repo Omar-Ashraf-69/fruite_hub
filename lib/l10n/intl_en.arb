@@ -105,5 +105,6 @@
   "total":"Total",
 
   "product_is_added_to_cart":"Product is added to cart",
-  "product_is_removed_from_cart":"Product is removed from cart"
+  "product_is_removed_from_cart":"Product is removed from cart",
+  "cart_is_empty":"Cart is empty"
 }

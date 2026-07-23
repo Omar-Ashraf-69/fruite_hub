@@ -7,6 +7,7 @@ import 'package:fruit_hub/features/auth/features/login/presentation/cubit/login_
 import 'package:fruit_hub/features/auth/features/login/presentation/views/login_view.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/cubit/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/features/signup/presentation/views/signup_view.dart';
+import 'package:fruit_hub/features/checkout/presentation/checkout_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/home_view.dart';
 import 'package:fruit_hub/features/main/presentation/views/main_view.dart';
 import 'package:fruit_hub/features/onboarding/presentation/views/onboarding_view.dart';
@@ -34,6 +35,8 @@ class AppRouter {
         return _buildRoute(const HomeView());
       case AppRoutes.main:
         return _buildRoute(const MainView());
+      case AppRoutes.checkout:
+        return _buildRoute(const CheckoutView());
       default:
         return _buildRoute(
           Scaffold(

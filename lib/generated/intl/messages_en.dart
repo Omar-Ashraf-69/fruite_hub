@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "By creating an account, you agree to our ",
     ),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "cart_is_empty": MessageLookupByLibrary.simpleMessage("Cart is empty"),
     "cart_view": MessageLookupByLibrary.simpleMessage("Cart screen"),
     "check_your_internet_connection": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection",

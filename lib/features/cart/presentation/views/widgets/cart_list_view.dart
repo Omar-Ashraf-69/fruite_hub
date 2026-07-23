@@ -21,7 +21,7 @@ class CartItemsList extends StatelessWidget {
               ),
             ],
           ),
-          PayButton(onPressed: () {}),
+          const PayButton(),
         ],
       ),
     );

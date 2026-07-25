@@ -9,6 +9,7 @@ import 'package:fruit_hub/features/auth/features/signup/presentation/cubit/signu
 import 'package:fruit_hub/features/auth/features/signup/presentation/views/signup_view.dart';
 import 'package:fruit_hub/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/checkout_view.dart';
+import 'package:fruit_hub/features/checkout/presentation/cubit/checkout_cubit.dart';
 import 'package:fruit_hub/features/home/presentation/views/home_view.dart';
 import 'package:fruit_hub/features/main/presentation/views/main_view.dart';
 import 'package:fruit_hub/features/onboarding/presentation/views/onboarding_view.dart';
@@ -39,7 +40,10 @@ class AppRouter {
       case AppRoutes.checkout:
         final checkoutData = settings.arguments as CartEntity;
         return MaterialPageRoute(
-          builder: (_) => CheckoutView(cart: checkoutData),
+          builder: (_) => BlocProvider(
+            create: (context) => CheckoutCubit(cart: checkoutData),
+            child: const CheckoutView(),
+          ),
         );
       default:
         return _buildRoute(

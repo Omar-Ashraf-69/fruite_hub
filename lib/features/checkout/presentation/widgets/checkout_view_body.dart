@@ -1,8 +1,5 @@
-import 'dart:developer';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/constants/assets.dart';
@@ -14,25 +11,20 @@ import 'package:fruit_hub/core/theme/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/core/widgets/custom_button_widget.dart';
 import 'package:fruit_hub/core/widgets/custom_form_field.dart';
-import 'package:fruit_hub/features/cart/domain/entities/cart_entity.dart';
-import 'package:fruit_hub/features/checkout/data/address_controllers.dart';
-import 'package:fruit_hub/features/checkout/data/checkout_data.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/checkout_step.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/payment_method.dart';
+import 'package:fruit_hub/features/checkout/presentation/cubit/checkout_cubit.dart';
 
 class CheckoutViewBody extends StatefulWidget {
-  const CheckoutViewBody({super.key, required this.cart});
-  final CartEntity cart;
+  const CheckoutViewBody({super.key});
   @override
   State<CheckoutViewBody> createState() => _CheckoutViewBodyState();
 }
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController pageController;
-  GlobalKey<FormState> addressFormKey = GlobalKey<FormState>();
   int currentPageIndex = 0;
   int maxReachedStep = 0;
-  PaymentMethod? selectedPaymentMethod;
-  final addressControllers = AddressControllers();
-  final CheckoutData checkoutData = CheckoutData();
   @override
   void initState() {
     pageController = PageController(initialPage: 0);
@@ -86,17 +78,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           verticalSpace(12),
           Expanded(
             child: CheckoutPageView(
-              checkoutData: checkoutData,
-              addressControllers: addressControllers,
               pageController: pageController,
-              addressFormKey: addressFormKey,
-              cart: widget.cart,
-              selectedPaymentMethod: selectedPaymentMethod,
               onPageChanged: (index) =>
                   setState(() => currentPageIndex = index),
-              onPaymentMethodSelected: (PaymentMethod value) {
-                setState(() => selectedPaymentMethod = value);
-              },
             ),
           ),
           CustomButtonWidget(
@@ -138,7 +122,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   void onContinuePressed() {
     switch (currentPageIndex) {
       case 0:
-        if (selectedPaymentMethod == null) {
+        if (context.read<CheckoutCubit>().checkout.paymentMethod == null) {
           final messenger = ScaffoldMessenger.of(context);
 
           messenger.removeCurrentSnackBar();
@@ -149,18 +133,6 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               content: Text("Please select a payment method."),
             ),
           );
-          // ScaffoldMessenger.of(context).showSnackBar(
-          //   SnackBar(
-          //     behavior: SnackBarBehavior.floating,
-          //     margin: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 0),
-          //     content: const Text("Please select a payment method."),
-          //   ),
-          // );
-          // ScaffoldMessenger.of(context)
-          //   ..hideCurrentSnackBar()
-          //   ..showSnackBar(
-          //     const SnackBar(content: Text("Please select a payment method.")),
-          //   );
           return;
         }
 
@@ -168,18 +140,17 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         break;
 
       case 1:
-        if (!(addressFormKey.currentState?.validate() ?? false)) {
+        if (!(context
+                .read<CheckoutCubit>()
+                .addressFormKey
+                .currentState
+                ?.validate() ??
+            false)) {
           return;
         }
-
-        checkoutData.fullName = addressControllers.fullName.text;
-        checkoutData.email = addressControllers.email.text;
-        checkoutData.address = addressControllers.address.text;
-        checkoutData.city = addressControllers.city.text;
-        checkoutData.floor = addressControllers.floor.text;
-        checkoutData.phone = addressControllers.phone.text;
-        addressFormKey.currentState?.save();
+        context.read<CheckoutCubit>().addressFormKey.currentState?.save();
         FocusScope.of(context).unfocus();
+        context.read<CheckoutCubit>().saveAddress();
         _goToNextPage();
         break;
 
@@ -216,64 +187,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _completeCheckout() {
-    if (selectedPaymentMethod == PaymentMethod.paypal) {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (BuildContext context) => PaypalCheckoutView(
-            sandboxMode: true,
-            clientId: "",
-            secretKey: "",
-            transactions: const [
-              {
-                "amount": {
-                  "total": '70',
-                  "currency": "USD",
-                  "details": {
-                    "subtotal": '70',
-                    "shipping": '0',
-                    "shipping_discount": 0,
-                  },
-                },
-                "description": "The payment transaction description.",
-
-                "item_list": {
-                  "items": [
-                    {
-                      "name": "Apple",
-                      "quantity": 4,
-                      "price": '5',
-                      "currency": "USD",
-                    },
-                    {
-                      "name": "Pineapple",
-                      "quantity": 5,
-                      "price": '10',
-                      "currency": "USD",
-                    },
-                  ],
-                },
-              },
-            ],
-            note: "Contact us for any questions on your order.",
-            onSuccess: (Map params) async {
-              if (kDebugMode) {
-                log("onSuccess: $params");
-              }
-            },
-            onError: (error) {
-              if (kDebugMode) {
-                log("onError: $error");
-              }
-              Navigator.pop(context);
-            },
-            onCancel: () {
-              if (kDebugMode) {
-                log('cancelled:');
-              }
-            },
-          ),
-        ),
-      );
+    if (context.read<CheckoutCubit>().checkout.paymentMethod ==
+        PaymentMethod.paypal) {
+      // ToastNoContext.showShortToast(message: "Checkout completed.");
+      // Navigator.pop(context);
     } else {
       ToastNoContext.showShortToast(message: "Checkout completed.");
       Navigator.pop(context);
@@ -281,29 +198,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 }
 
-enum CheckoutStepState { completed, current, upcoming }
-
-enum PaymentMethod { cashOnDelivery, paypal }
 
 class CheckoutPageView extends StatelessWidget {
   const CheckoutPageView({
     super.key,
     required this.pageController,
-    required this.addressFormKey,
-    this.selectedPaymentMethod,
-    required this.onPaymentMethodSelected,
     required this.onPageChanged,
-    required this.addressControllers,
-    required this.checkoutData,
-    required this.cart,
   });
   final PageController pageController;
-  final GlobalKey<FormState> addressFormKey;
-  final AddressControllers addressControllers;
-  final PaymentMethod? selectedPaymentMethod;
-  final ValueChanged<PaymentMethod> onPaymentMethodSelected;
-  final CheckoutData checkoutData;
-  final CartEntity cart;
   final ValueChanged<int> onPageChanged;
   @override
   Widget build(BuildContext context) {
@@ -319,18 +221,7 @@ class CheckoutPageView extends StatelessWidget {
   }
 
   List<Widget> getPages() {
-    return [
-      ShippingSection(
-        selectedPaymentMethod: selectedPaymentMethod,
-        onPaymentMethodSelected: onPaymentMethodSelected,
-        checkoutData: checkoutData,
-      ),
-      AddressInputSection(
-        formKey: addressFormKey,
-        addressControllers: addressControllers,
-      ),
-      PaymentSection(checkoutData: checkoutData, cart: cart),
-    ];
+    return [ShippingSection(), AddressInputSection(), PaymentSection()];
   }
 }
 
@@ -366,15 +257,10 @@ class CheckoutStep extends StatelessWidget {
 }
 
 class PaymentSection extends StatelessWidget {
-  const PaymentSection({
-    super.key,
-    required this.checkoutData,
-    required this.cart,
-  });
-  final CheckoutData checkoutData;
-  final CartEntity cart;
+  const PaymentSection({super.key});
   @override
   Widget build(BuildContext context) {
+    final cubit = context.watch<CheckoutCubit>();
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -389,7 +275,7 @@ class PaymentSection extends StatelessWidget {
                   children: [
                     Text("Subtotal: ", style: TextStyles.bold13),
                     Text(
-                      "\$ ${cart.totalPrice().toString()}",
+                      "\$ ${cubit.cart.totalPrice().toString()}",
                       style: TextStyles.semiBold13.copyWith(
                         color: AppColors.lighterGray,
                       ),
@@ -417,7 +303,7 @@ class PaymentSection extends StatelessWidget {
                   children: [
                     Text("Total: ", style: TextStyles.bold19),
                     Text(
-                      "\$ ${"${cart.totalPrice() + 10}"}",
+                      "\$ ${(cubit.totalPrice()).toString()}",
                       style: TextStyles.semiBold13.copyWith(
                         color: AppColors.lighterGray,
                       ),
@@ -436,7 +322,7 @@ class PaymentSection extends StatelessWidget {
                 SvgPicture.asset(Assets.svgsLocation, height: 20.h),
                 horizontalSpace(4),
                 Text(
-                  "${checkoutData.address}, ${checkoutData.city}",
+                  cubit.checkout.address.toString(),
                   style: TextStyles.semiBold13.copyWith(
                     color: AppColors.lightGray,
                   ),
@@ -472,23 +358,18 @@ class CustomPaymentInfoContainer extends StatelessWidget {
 }
 
 class AddressInputSection extends StatelessWidget {
-  const AddressInputSection({
-    super.key,
-    required this.formKey,
-    required this.addressControllers,
-  });
-  final GlobalKey<FormState> formKey;
-  final AddressControllers addressControllers;
+  const AddressInputSection({super.key});
   @override
   Widget build(BuildContext context) {
+    final cubit = context.watch<CheckoutCubit>();
     return SingleChildScrollView(
       child: Form(
-        key: formKey,
+        key: cubit.addressFormKey,
         child: Column(
           children: [
             CustomFormField(
               hintText: 'Full Name',
-              controller: addressControllers.fullName,
+              controller: cubit.addressControllers.fullName,
               keyboardType: TextInputType.text,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
@@ -500,7 +381,7 @@ class AddressInputSection extends StatelessWidget {
             verticalSpace(12),
             CustomFormField(
               hintText: 'Email',
-              controller: addressControllers.email,
+              controller: cubit.addressControllers.email,
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
@@ -512,7 +393,7 @@ class AddressInputSection extends StatelessWidget {
             verticalSpace(12),
             CustomFormField(
               hintText: 'Address',
-              controller: addressControllers.address,
+              controller: cubit.addressControllers.address,
               keyboardType: TextInputType.streetAddress,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
@@ -524,7 +405,7 @@ class AddressInputSection extends StatelessWidget {
             verticalSpace(12),
             CustomFormField(
               hintText: 'City',
-              controller: addressControllers.city,
+              controller: cubit.addressControllers.city,
               keyboardType: TextInputType.text,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
@@ -536,7 +417,7 @@ class AddressInputSection extends StatelessWidget {
             verticalSpace(12),
             CustomFormField(
               hintText: 'Floor number',
-              controller: addressControllers.floor,
+              controller: cubit.addressControllers.floor,
               keyboardType: TextInputType.numberWithOptions(),
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
@@ -549,7 +430,7 @@ class AddressInputSection extends StatelessWidget {
             CustomFormField(
               hintText: 'Phone number',
               keyboardType: TextInputType.phone,
-              controller: addressControllers.phone,
+              controller: cubit.addressControllers.phone,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
                   return 'This field is required';
@@ -568,38 +449,33 @@ class AddressInputSection extends StatelessWidget {
 }
 
 class ShippingSection extends StatelessWidget {
-  const ShippingSection({
-    super.key,
-    this.selectedPaymentMethod,
-    required this.onPaymentMethodSelected,
-    required this.checkoutData,
-  });
+  const ShippingSection({super.key});
 
-  final PaymentMethod? selectedPaymentMethod;
-  final ValueChanged<PaymentMethod> onPaymentMethodSelected;
-  final CheckoutData checkoutData;
   @override
   Widget build(BuildContext context) {
+    final cubit = context.watch<CheckoutCubit>();
     return Column(
       children: [
         PaymentSelectionOption(
           title: "Cash on Delivery",
           subtitle: "Pay when you receive your order",
           price: "Free",
-          isSelected: selectedPaymentMethod == PaymentMethod.cashOnDelivery,
-          onTap: () => onPaymentMethodSelected(
-            checkoutData.paymentMethod = PaymentMethod.cashOnDelivery,
-          ),
+          isSelected:
+              cubit.checkout.paymentMethod == PaymentMethod.cashOnDelivery,
+          onTap: () {
+            cubit.selectPaymentMethod(method: PaymentMethod.cashOnDelivery);
+            // cubit.checkout.paymentMethod = PaymentMethod.cashOnDelivery;
+          },
         ),
         verticalSpace(12),
         PaymentSelectionOption(
           title: "Credit/Debit Card",
           subtitle: "Pay with your credit/debit card",
           price: "219",
-          isSelected: selectedPaymentMethod == PaymentMethod.paypal,
-          onTap: () => onPaymentMethodSelected(
-            checkoutData.paymentMethod = PaymentMethod.paypal,
-          ),
+          isSelected: cubit.checkout.paymentMethod == PaymentMethod.paypal,
+          onTap: () {
+            cubit.selectPaymentMethod(method: PaymentMethod.paypal);
+          },
         ),
       ],
     );

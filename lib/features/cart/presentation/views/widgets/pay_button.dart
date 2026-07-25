@@ -25,7 +25,7 @@ class PayButton extends StatelessWidget {
                 "${S.of(context).pay} ${context.watch<CartCubit>().cart.totalPrice().toString()} ${S.of(context).currency}",
             onPressed: () {
               if (context.read<CartCubit>().cart.items.isNotEmpty) {
-                context.pushNamed(AppRoutes.checkout);
+                context.pushNamed(AppRoutes.checkout, arguments: context.read<CartCubit>().cart);
               } else {
                 ToastNoContext.showShortToast(
                   message: S.of(context).cart_is_empty,

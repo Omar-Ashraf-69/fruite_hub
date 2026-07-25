@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/constants/assets.dart';
 import 'package:fruit_hub/core/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_text_styles.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class CartDeletePriceColumn extends StatelessWidget {
   const CartDeletePriceColumn({
@@ -34,7 +35,7 @@ class CartDeletePriceColumn extends StatelessWidget {
         const Spacer(),
 
         Text(
-          '\$${price.toStringAsFixed(2)}',
+          '${S.of(context).currency} ${price.toStringAsFixed(2)}',
           style: TextStyles.bold13.copyWith(color: AppColors.secondaryColor),
         ),
       ],

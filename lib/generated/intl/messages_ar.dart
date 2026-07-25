@@ -26,21 +26,34 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "يوجد حساب بالفعل بهذا البريد الإلكتروني. يرجى تسجيل الدخول باستخدام طريقة تسجيل الدخول السابقة الخاصة بك.",
         ),
+    "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "already_have_an_account": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل؟",
     ),
     "by_continuing_you_agree_to_our": MessageLookupByLibrary.simpleMessage(
       "بإنشاء حساب، فإنك توافق على ",
     ),
+    "cach_on_delivery": MessageLookupByLibrary.simpleMessage(
+      "الدفع عند الاستلام",
+    ),
     "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+    "cart_is_empty": MessageLookupByLibrary.simpleMessage("سلة التسوق فارغة"),
     "cart_view": MessageLookupByLibrary.simpleMessage("شاشة السلة"),
     "check_your_internet_connection": MessageLookupByLibrary.simpleMessage(
       "يرجى التحقق من الاتصال بالإنترنت",
     ),
+    "checkout": MessageLookupByLibrary.simpleMessage("إتمام الطلب"),
+    "checkout_completed": MessageLookupByLibrary.simpleMessage(
+      "تم إتمام الطلب",
+    ),
+    "city": MessageLookupByLibrary.simpleMessage("المدينة"),
     "connection_timeout": MessageLookupByLibrary.simpleMessage(
       "انتهت مهلة الطلب، يرجى المحاولة مرة أخرى",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "credit_debit_card": MessageLookupByLibrary.simpleMessage(
+      "بطاقة ائتمان/خصم",
+    ),
     "currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "data_already_exists": MessageLookupByLibrary.simpleMessage(
       "البيانات موجودة بالفعل",
@@ -52,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "حدث خطأ أثناء الاتصال بقاعدة البيانات",
     ),
     "dont_have_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "email_already_in_use": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني مستخدم بالفعل",
     ),
@@ -73,10 +88,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "file_not_found": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على الملف",
     ),
+    "floor": MessageLookupByLibrary.simpleMessage("الطابق"),
     "forget_password": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
+    "free": MessageLookupByLibrary.simpleMessage("مجانًا"),
     "fruits": MessageLookupByLibrary.simpleMessage("فواكه"),
+    "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
     "google_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
       "تم إلغاء تسجيل الدخول باستخدام جوجل.",
     ),
@@ -95,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تسجيل الدخول باستخدام جوجل",
     ),
     "most_popular": MessageLookupByLibrary.simpleMessage("الأكثر مبيعاً"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "no_internet_connection": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالإنترنت",
     ),
@@ -118,10 +137,25 @@ class MessageLookup extends MessageLookupByLibrary {
       "هذه العملية غير متاحة حالياً",
     ),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
+    "order_placed_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم تقديم الطلب بنجاح",
+    ),
+    "order_placed_successfully_message": MessageLookupByLibrary.simpleMessage(
+      "تم تقديم طلبك بنجاح. ستتلقى رسالة بريد إلكتروني تحتوي على تفاصيل طلبك.",
+    ),
+    "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب:"),
     "pay": MessageLookupByLibrary.simpleMessage("ادفع"),
+    "pay_when_you_receive": MessageLookupByLibrary.simpleMessage(
+      "ادفع عند استلام طلبك",
+    ),
+    "pay_with_paypal": MessageLookupByLibrary.simpleMessage("الدفع عبر PayPal"),
+    "pay_with_your_card": MessageLookupByLibrary.simpleMessage(
+      "ادفع باستخدام بطاقة الائتمان أو الخصم",
+    ),
     "permission_denied": MessageLookupByLibrary.simpleMessage(
       "ليس لديك الصلاحية لإجراء هذه العملية",
     ),
+    "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "please_accept_terms_and_conditions": MessageLookupByLibrary.simpleMessage(
       "يرجى الموافقة على الشروط والأحكام",
     ),
@@ -133,6 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "please_enter_a_valid_password": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال كلمة مرور صحيحة",
+    ),
+    "please_select_a_payment_method": MessageLookupByLibrary.simpleMessage(
+      "يرجى اختيار طريقة الدفع",
     ),
     "product": MessageLookupByLibrary.simpleMessage("المنتج"),
     "product_is_added_to_cart": MessageLookupByLibrary.simpleMessage(
@@ -159,6 +196,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "service_unavailable": MessageLookupByLibrary.simpleMessage(
       "الخدمة غير متاحة حالياً",
     ),
+    "shipping": MessageLookupByLibrary.simpleMessage("الشحن:"),
+    "shipping_address": MessageLookupByLibrary.simpleMessage("عنوان الشحن:"),
     "shop_now": MessageLookupByLibrary.simpleMessage("تسوق الآن"),
     "sign_in_now": MessageLookupByLibrary.simpleMessage("سجل الدخول الآن"),
     "sing_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
@@ -173,6 +212,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "storage_quota_exceeded": MessageLookupByLibrary.simpleMessage(
       "تم تجاوز المساحة التخزينية المتاحة",
     ),
+    "subtitle": MessageLookupByLibrary.simpleMessage("المجموع الفرعي:"),
+    "subtotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
     "terms_and_conditions": MessageLookupByLibrary.simpleMessage(
       "الشروط والأحكام الخاصة بنا",
     ),

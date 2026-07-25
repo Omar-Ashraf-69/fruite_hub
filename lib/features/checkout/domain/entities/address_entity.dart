@@ -17,6 +17,6 @@ class AddressEntity {
 
   @override
   String toString() {
-    return '$address $floor $city';
+    return '$address ,$floor $city';
   }
 }

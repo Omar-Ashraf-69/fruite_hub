@@ -15,6 +15,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   final addressControllers = AddressControllers();
   GlobalKey<FormState> addressFormKey = GlobalKey<FormState>();
 
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   void selectPaymentMethod({required PaymentMethod method}) {
     checkout.paymentMethod = method;
     emit(CheckoutPaymentMethod());

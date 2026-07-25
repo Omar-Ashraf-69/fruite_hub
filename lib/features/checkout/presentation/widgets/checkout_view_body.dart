@@ -14,6 +14,7 @@ import 'package:fruit_hub/core/widgets/custom_form_field.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/checkout_step.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/payment_method.dart';
 import 'package:fruit_hub/features/checkout/presentation/cubit/checkout_cubit.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key});
@@ -44,7 +45,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       padding: const EdgeInsets.only(left: 18.0, right: 18, top: 18),
       child: Column(
         children: [
-          CustomAppBar(title: "Checkout", onTap: () => context.pop()),
+          CustomAppBar(
+            title: S.of(context).checkout,
+            onTap: () => context.pop(),
+          ),
           verticalSpace(12),
           Row(
             children: List.generate(3, (index) {
@@ -96,26 +100,26 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   String getTitle(int index) {
     switch (index) {
       case 0:
-        return "Next";
+        return S.of(context).next;
       case 1:
-        return "Next";
+        return S.of(context).next;
       case 2:
-        return "Pay with PayPal";
+        return S.of(context).pay_with_paypal;
       default:
-        return "Shipping";
+        return S.of(context).shipping;
     }
   }
 
   String getLabel(int index) {
     switch (index) {
       case 0:
-        return "Shipping";
+        return S.of(context).shipping;
       case 1:
-        return "Address";
+        return S.of(context).address;
       case 2:
-        return "Payment";
+        return S.of(context).payment;
       default:
-        return "Shipping";
+        return S.of(context).shipping;
     }
   }
 
@@ -128,9 +132,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           messenger.removeCurrentSnackBar();
 
           messenger.showSnackBar(
-            const SnackBar(
+            SnackBar(
               duration: Duration(microseconds: 1500000),
-              content: Text("Please select a payment method."),
+              content: Text(S.of(context).please_select_a_payment_method),
             ),
           );
           return;
@@ -146,6 +150,8 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 .currentState
                 ?.validate() ??
             false)) {
+          context.read<CheckoutCubit>().autovalidateMode =
+              AutovalidateMode.onUserInteraction;
           return;
         }
         context.read<CheckoutCubit>().addressFormKey.currentState?.save();
@@ -192,12 +198,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       // ToastNoContext.showShortToast(message: "Checkout completed.");
       // Navigator.pop(context);
     } else {
-      ToastNoContext.showShortToast(message: "Checkout completed.");
+      ToastNoContext.showShortToast(message: S.of(context).checkout_completed);
       Navigator.pop(context);
     }
   }
 }
-
 
 class CheckoutPageView extends StatelessWidget {
   const CheckoutPageView({
@@ -265,7 +270,7 @@ class PaymentSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Order Summary: ", style: TextStyles.bold19),
+          Text(S.of(context).order_summary, style: TextStyles.bold19),
           verticalSpace(12),
           CustomPaymentInfoContainer(
             child: Column(
@@ -273,9 +278,9 @@ class PaymentSection extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Subtotal: ", style: TextStyles.bold13),
+                    Text(S.of(context).subtotal, style: TextStyles.bold13),
                     Text(
-                      "\$ ${cubit.cart.totalPrice().toString()}",
+                      "${S.of(context).currency} ${cubit.cart.totalPrice().toString()}",
                       style: TextStyles.semiBold13.copyWith(
                         color: AppColors.lighterGray,
                       ),
@@ -286,9 +291,9 @@ class PaymentSection extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Shipping: ", style: TextStyles.bold13),
+                    Text(S.of(context).shipping, style: TextStyles.bold13),
                     Text(
-                      "\$ 10",
+                      "${S.of(context).currency} 10",
                       style: TextStyles.semiBold13.copyWith(
                         color: AppColors.lighterGray,
                       ),
@@ -301,9 +306,9 @@ class PaymentSection extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total: ", style: TextStyles.bold19),
+                    Text(S.of(context).total, style: TextStyles.bold19),
                     Text(
-                      "\$ ${(cubit.totalPrice()).toString()}",
+                      " ${S.of(context).currency} ${(cubit.totalPrice()).toString()}",
                       style: TextStyles.semiBold13.copyWith(
                         color: AppColors.lighterGray,
                       ),
@@ -314,7 +319,7 @@ class PaymentSection extends StatelessWidget {
             ),
           ),
           verticalSpace(12),
-          Text("Shipping Address: ", style: TextStyles.bold19),
+          Text(S.of(context).shipping_address, style: TextStyles.bold19),
           verticalSpace(12),
           CustomPaymentInfoContainer(
             child: Row(
@@ -330,7 +335,7 @@ class PaymentSection extends StatelessWidget {
                 Spacer(),
                 SvgPicture.asset(Assets.svgsEdit),
                 horizontalSpace(4),
-                Text("Edit", style: TextStyles.semiBold13),
+                Text(S.of(context).edit, style: TextStyles.semiBold13),
               ],
             ),
           ),
@@ -365,75 +370,76 @@ class AddressInputSection extends StatelessWidget {
     return SingleChildScrollView(
       child: Form(
         key: cubit.addressFormKey,
+        autovalidateMode: cubit.autovalidateMode,
         child: Column(
           children: [
             CustomFormField(
-              hintText: 'Full Name',
+              hintText: S.of(context).full_name,
               controller: cubit.addressControllers.fullName,
               keyboardType: TextInputType.text,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return 'This field is required';
+                  return 'This ${S.of(context).full_name} is required';
                 }
                 return null;
               },
             ),
             verticalSpace(12),
             CustomFormField(
-              hintText: 'Email',
+              hintText: S.of(context).email,
               controller: cubit.addressControllers.email,
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return 'This field is required';
+                  return 'This ${S.of(context).email} is required';
                 }
                 return null;
               },
             ),
             verticalSpace(12),
             CustomFormField(
-              hintText: 'Address',
+              hintText: S.of(context).address,
               controller: cubit.addressControllers.address,
               keyboardType: TextInputType.streetAddress,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return 'This field is required';
+                  return 'This ${S.of(context).address} is required';
                 }
                 return null;
               },
             ),
             verticalSpace(12),
             CustomFormField(
-              hintText: 'City',
+              hintText: S.of(context).city,
               controller: cubit.addressControllers.city,
               keyboardType: TextInputType.text,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return 'This field is required';
+                  return 'This ${S.of(context).city} is required';
                 }
                 return null;
               },
             ),
             verticalSpace(12),
             CustomFormField(
-              hintText: 'Floor number',
+              hintText: S.of(context).floor,
               controller: cubit.addressControllers.floor,
               keyboardType: TextInputType.numberWithOptions(),
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return 'This field is required';
+                  return 'This ${S.of(context).floor} is required';
                 }
                 return null;
               },
             ),
             verticalSpace(12),
             CustomFormField(
-              hintText: 'Phone number',
+              hintText: S.of(context).phone,
               keyboardType: TextInputType.phone,
               controller: cubit.addressControllers.phone,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return 'This field is required';
+                  return 'This ${S.of(context).phone} is required';
                 }
                 return null;
               },
@@ -457,9 +463,9 @@ class ShippingSection extends StatelessWidget {
     return Column(
       children: [
         PaymentSelectionOption(
-          title: "Cash on Delivery",
-          subtitle: "Pay when you receive your order",
-          price: "Free",
+          title: S.of(context).cach_on_delivery,
+          subtitle: S.of(context).pay_when_you_receive,
+          price: S.of(context).free,
           isSelected:
               cubit.checkout.paymentMethod == PaymentMethod.cashOnDelivery,
           onTap: () {
@@ -469,9 +475,10 @@ class ShippingSection extends StatelessWidget {
         ),
         verticalSpace(12),
         PaymentSelectionOption(
-          title: "Credit/Debit Card",
-          subtitle: "Pay with your credit/debit card",
-          price: "219",
+          title: S.of(context).credit_debit_card,
+          subtitle: S.of(context).pay_with_your_card,
+          price:
+              "${S.of(context).currency} ${context.read<CheckoutCubit>().cart.totalPrice()}",
           isSelected: cubit.checkout.paymentMethod == PaymentMethod.paypal,
           onTap: () {
             cubit.selectPaymentMethod(method: PaymentMethod.paypal);
@@ -552,8 +559,9 @@ class PaymentSelectionOption extends StatelessWidget {
                 ],
               ),
             ),
+
             Text(
-              "\$ $price",
+              price,
               style: TextStyles.semiBold13.copyWith(
                 color: AppColors.lightPrimaryColor,
               ),

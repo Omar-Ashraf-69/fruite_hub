@@ -720,6 +720,26 @@ class S {
     return Intl.message('Products', name: 'products', desc: '', args: []);
   }
 
+  /// `Checkout`
+  String get checkout {
+    return Intl.message('Checkout', name: 'checkout', desc: '', args: []);
+  }
+
+  /// `next`
+  String get next {
+    return Intl.message('next', name: 'next', desc: '', args: []);
+  }
+
+  /// `Pay with PayPal`
+  String get pay_with_paypal {
+    return Intl.message(
+      'Pay with PayPal',
+      name: 'pay_with_paypal',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Product`
   String get product {
     return Intl.message('Product', name: 'product', desc: '', args: []);
@@ -735,9 +755,39 @@ class S {
     return Intl.message('Results', name: 'results', desc: '', args: []);
   }
 
+  /// `Payment`
+  String get payment {
+    return Intl.message('Payment', name: 'payment', desc: '', args: []);
+  }
+
   /// `Pay`
   String get pay {
     return Intl.message('Pay', name: 'pay', desc: '', args: []);
+  }
+
+  /// `Subtotal`
+  String get subtotal {
+    return Intl.message('Subtotal', name: 'subtotal', desc: '', args: []);
+  }
+
+  /// `Checkout Completed`
+  String get checkout_completed {
+    return Intl.message(
+      'Checkout Completed',
+      name: 'checkout_completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select a payment method`
+  String get please_select_a_payment_method {
+    return Intl.message(
+      'Please select a payment method',
+      name: 'please_select_a_payment_method',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `You have`
@@ -785,6 +835,136 @@ class S {
     return Intl.message(
       'Cart is empty',
       name: 'cart_is_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Summary: `
+  String get order_summary {
+    return Intl.message(
+      'Order Summary: ',
+      name: 'order_summary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subtotal: `
+  String get subtitle {
+    return Intl.message('Subtotal: ', name: 'subtitle', desc: '', args: []);
+  }
+
+  /// `Shipping: `
+  String get shipping {
+    return Intl.message('Shipping: ', name: 'shipping', desc: '', args: []);
+  }
+
+  /// `Shipping Address: `
+  String get shipping_address {
+    return Intl.message(
+      'Shipping Address: ',
+      name: 'shipping_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message('Edit', name: 'edit', desc: '', args: []);
+  }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message('Full Name', name: 'full_name', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message('Phone', name: 'phone', desc: '', args: []);
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message('Address', name: 'address', desc: '', args: []);
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message('City', name: 'city', desc: '', args: []);
+  }
+
+  /// `Floor`
+  String get floor {
+    return Intl.message('Floor', name: 'floor', desc: '', args: []);
+  }
+
+  /// `Cash on Delivery`
+  String get cach_on_delivery {
+    return Intl.message(
+      'Cash on Delivery',
+      name: 'cach_on_delivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay when you receive your order`
+  String get pay_when_you_receive {
+    return Intl.message(
+      'Pay when you receive your order',
+      name: 'pay_when_you_receive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Free`
+  String get free {
+    return Intl.message('Free', name: 'free', desc: '', args: []);
+  }
+
+  /// `Credit/Debit Card`
+  String get credit_debit_card {
+    return Intl.message(
+      'Credit/Debit Card',
+      name: 'credit_debit_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay with your credit/debit card`
+  String get pay_with_your_card {
+    return Intl.message(
+      'Pay with your credit/debit card',
+      name: 'pay_with_your_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order placed successfully`
+  String get order_placed_successfully {
+    return Intl.message(
+      'Order placed successfully',
+      name: 'order_placed_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order has been placed successfully. You will receive an email with your order details.`
+  String get order_placed_successfully_message {
+    return Intl.message(
+      'Your order has been placed successfully. You will receive an email with your order details.',
+      name: 'order_placed_successfully_message',
       desc: '',
       args: [],
     );

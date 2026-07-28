@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
@@ -43,7 +45,12 @@ class PopularItemWidget extends StatelessWidget {
                       ),
                     ),
                   )
-                : Container(color: Colors.grey, height: 100, width: 100),
+                : Container(
+                    margin: const EdgeInsets.all(20),
+                    color: AppColors.lighterGray,
+                    height: 20.h,
+                    width: 20.w,
+                  ),
             // child: Image.asset(
             //   Assets.imagesWatermelonTest,
             //   fit: BoxFit.contain,
@@ -117,13 +124,18 @@ class PopularItemDetails extends StatelessWidget {
               ),
             ),
             // Add Button
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: const BoxDecoration(
-                color: AppColors.green,
-                shape: BoxShape.circle,
+            GestureDetector(
+              onTap: () {
+                context.read<CartCubit>().addToCart(product);
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: const BoxDecoration(
+                  color: AppColors.green,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.add, size: 16.sp, color: Colors.white),
               ),
-              child: Icon(Icons.add, size: 16.sp, color: Colors.white),
             ),
           ],
         ),

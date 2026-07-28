@@ -1,10 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/auth/firebase_auth_service.dart';
 import 'package:fruit_hub/core/constants/pref_keys.dart';
 import 'package:fruit_hub/core/di/dependecny_injection.dart';
 import 'package:fruit_hub/core/routing/app_routes.dart';
+import 'package:fruit_hub/core/utils/custom_bloc_observer.dart';
 import 'package:fruit_hub/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,7 +15,7 @@ class AppInitializer {
     WidgetsFlutterBinding.ensureInitialized();
 
     await ScreenUtil.ensureScreenSize();
-
+    Bloc.observer = CustomBlocObserver();
     await setupGetIt();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -33,6 +35,6 @@ class AppInitializer {
       return AppRoutes.login;
     }
 
-    return AppRoutes.home;
+    return AppRoutes.main;
   }
 }

@@ -5,6 +5,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source.dart';
 import 'package:fruit_hub/core/auth/auth_remote_data_source_impl.dart';
 import 'package:fruit_hub/core/auth/firebase_auth_service.dart';
+import 'package:fruit_hub/core/repos/add_product/add_order_repo.dart';
+import 'package:fruit_hub/core/repos/add_product/add_order_repo_impl.dart';
 import 'package:fruit_hub/core/repos/products_repo/products_repo.dart';
 import 'package:fruit_hub/core/repos/products_repo/products_repo_impl.dart';
 import 'package:fruit_hub/core/services/firestore_service.dart';
@@ -23,6 +25,7 @@ Future<void> setupGetIt() async {
   _registerSecureStorage();
   _registerAuthDependencies();
   _registerRemoteDataSourceDependencies();
+  _registerAddOrder();
 }
 
 void _registerSecureStorage() {
@@ -70,5 +73,11 @@ void _registerAuthDependencies() {
 void _registerRemoteDataSourceDependencies() {
   getIt.registerLazySingleton<FirestoreService>(
     () => FirestoreService(FirebaseFirestore.instance),
+  );
+}
+
+void _registerAddOrder() {
+  getIt.registerLazySingleton<AddOrderRepo>(
+    () => AddOrderRepoImpl(getIt<FirestoreService>(), getIt<FirebaseAuth>()),
   );
 }

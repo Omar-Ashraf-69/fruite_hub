@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/core/func/get_dummy_product.dart';
 import 'package:fruit_hub/core/widgets/custom_error_widget.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/popular_items_grid.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ProductsGridViewBlocBuilder extends StatelessWidget {
@@ -14,8 +17,14 @@ class ProductsGridViewBlocBuilder extends StatelessWidget {
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
         if (state is ProductsSuccess) {
+          if (state.products.isEmpty) {
+            return SliverToBoxAdapter(
+              child: Center(child: Text(S.of(context).no_products_found)),
+            );
+          }
           return ProductsGridView(products: state.products);
         } else if (state is ProductsFailure) {
+          log(state.errMessage);
           return CustomErrorWidget(text: state.errMessage);
         } else {
           return Skeletonizer.sliver(

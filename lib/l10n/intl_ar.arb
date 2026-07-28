@@ -86,5 +86,47 @@
   "cart": "السلة",
   "profile": "الملف الشخصي",
   "products": "المنتجات",
-  "product": "المنتج"
+  "product": "المنتج",
+
+  "fruits": "فواكه",
+  "results": "نتائج",
+
+  "pay": "ادفع",
+  "you_have": "لديك",
+  "items_in_cart": "عنصر في سلة التسوق",
+  "total": "الإجمالي",
+  "process_is_done":"'تمت العملية بنجاح'",
+  "product_is_removed_from_cart": "تم حذف المنتج من السلة",
+  "product_is_added_to_cart": "تمت اضافة المنتج الى السلة",
+  "checkout": "إتمام الطلب",
+  "next": "التالي",
+  "pay_with_paypal": "الدفع عبر PayPal",
+
+  "subtotal": "المجموع الفرعي",
+  "checkout_completed": "تم إتمام الطلب",
+  "please_select_a_payment_method": "يرجى اختيار طريقة الدفع",
+
+  "cart_is_empty": "سلة التسوق فارغة",
+
+  "order_summary": "ملخص الطلب:",
+  "subtitle": "المجموع الفرعي:",
+  "shipping": "الشحن:",
+  "shipping_address": "عنوان الشحن:",
+  "edit": "تعديل",
+
+  "full_name": "الاسم الكامل",
+  "email": "البريد الإلكتروني",
+  "phone": "رقم الهاتف",
+  "address": "العنوان",
+  "city": "المدينة",
+  "floor": "الطابق",
+  "cach_on_delivery": "الدفع عند الاستلام",
+  "pay_when_you_receive": "ادفع عند استلام طلبك",
+  "free": "مجانًا",
+  "credit_debit_card": "بطاقة ائتمان/خصم",
+  "pay_with_your_card": "ادفع باستخدام بطاقة الائتمان أو الخصم",
+  "order_placed_successfully": "تم تقديم الطلب بنجاح",
+  "order_placed_successfully_message": "تم تقديم طلبك بنجاح. ستتلقى رسالة بريد إلكتروني تحتوي على تفاصيل طلبك."
+
+
 }

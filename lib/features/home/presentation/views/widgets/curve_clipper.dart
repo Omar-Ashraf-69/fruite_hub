@@ -62,6 +62,7 @@ class DirectionalCurveClipper extends CustomClipper<Path> {
     return path;
   }
 
+  @override
   bool shouldReclip(covariant DirectionalCurveClipper oldClipper) {
     return oldClipper.textDirection != textDirection;
   }

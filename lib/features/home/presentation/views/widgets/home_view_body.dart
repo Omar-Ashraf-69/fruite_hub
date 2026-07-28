@@ -7,7 +7,7 @@ import 'package:fruit_hub/features/home/presentation/views/widgets/products_grid
 import 'package:fruit_hub/features/home/presentation/views/widgets/search_text_field.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, });
 
   @override
   Widget build(BuildContext context) {

@@ -26,21 +26,34 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "An account with this email already exists. Please sign in using your previous login method.",
         ),
+    "address": MessageLookupByLibrary.simpleMessage("Address"),
     "already_have_an_account": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
     "by_continuing_you_agree_to_our": MessageLookupByLibrary.simpleMessage(
       "By creating an account, you agree to our ",
     ),
+    "cach_on_delivery": MessageLookupByLibrary.simpleMessage(
+      "Cash on Delivery",
+    ),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "cart_is_empty": MessageLookupByLibrary.simpleMessage("Cart is empty"),
     "cart_view": MessageLookupByLibrary.simpleMessage("Cart screen"),
     "check_your_internet_connection": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection",
     ),
+    "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
+    "checkout_completed": MessageLookupByLibrary.simpleMessage(
+      "Checkout Completed",
+    ),
+    "city": MessageLookupByLibrary.simpleMessage("City"),
     "connection_timeout": MessageLookupByLibrary.simpleMessage(
       "The request timed out. Please try again",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "credit_debit_card": MessageLookupByLibrary.simpleMessage(
+      "Credit/Debit Card",
+    ),
     "currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "data_already_exists": MessageLookupByLibrary.simpleMessage(
       "The data already exists",
@@ -54,6 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "dont_have_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_already_in_use": MessageLookupByLibrary.simpleMessage(
       "This email address is already in use",
     ),
@@ -77,7 +92,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "file_not_found": MessageLookupByLibrary.simpleMessage(
       "The file was not found",
     ),
+    "floor": MessageLookupByLibrary.simpleMessage("Floor"),
     "forget_password": MessageLookupByLibrary.simpleMessage("Forget Password?"),
+    "free": MessageLookupByLibrary.simpleMessage("Free"),
+    "fruits": MessageLookupByLibrary.simpleMessage("Fruits"),
+    "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
     "google_sign_in_cancelled": MessageLookupByLibrary.simpleMessage(
       "Google sign-in was cancelled.",
     ),
@@ -86,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_credentials": MessageLookupByLibrary.simpleMessage(
       "The email or password is incorrect",
     ),
+    "items_in_cart": MessageLookupByLibrary.simpleMessage("items in cart"),
     "kg": MessageLookupByLibrary.simpleMessage("kg"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_with_facebook": MessageLookupByLibrary.simpleMessage(
@@ -95,11 +115,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Login with Google",
     ),
     "most_popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
+    "next": MessageLookupByLibrary.simpleMessage("next"),
     "no_internet_connection": MessageLookupByLibrary.simpleMessage(
       "No internet connection",
     ),
     "no_internet_connection_message": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection and try again",
+    ),
+    "no_products_found": MessageLookupByLibrary.simpleMessage(
+      "No products found",
     ),
     "offer": MessageLookupByLibrary.simpleMessage("Offer"),
     "on_boarding_title_1": MessageLookupByLibrary.simpleMessage(
@@ -118,9 +142,26 @@ class MessageLookup extends MessageLookupByLibrary {
       "This operation is currently unavailable",
     ),
     "or": MessageLookupByLibrary.simpleMessage("Or"),
+    "order_placed_successfully": MessageLookupByLibrary.simpleMessage(
+      "Order placed successfully",
+    ),
+    "order_placed_successfully_message": MessageLookupByLibrary.simpleMessage(
+      "Your order has been placed successfully. You will receive an email with your order details.",
+    ),
+    "order_summary": MessageLookupByLibrary.simpleMessage("Order Summary: "),
+    "pay": MessageLookupByLibrary.simpleMessage("Pay"),
+    "pay_when_you_receive": MessageLookupByLibrary.simpleMessage(
+      "Pay when you receive your order",
+    ),
+    "pay_with_paypal": MessageLookupByLibrary.simpleMessage("Pay with PayPal"),
+    "pay_with_your_card": MessageLookupByLibrary.simpleMessage(
+      "Pay with your credit/debit card",
+    ),
+    "payment": MessageLookupByLibrary.simpleMessage("Payment"),
     "permission_denied": MessageLookupByLibrary.simpleMessage(
       "You don\'t have permission to perform this operation",
     ),
+    "phone": MessageLookupByLibrary.simpleMessage("Phone"),
     "please_accept_terms_and_conditions": MessageLookupByLibrary.simpleMessage(
       "Please accept terms and conditions",
     ),
@@ -133,7 +174,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_enter_a_valid_password": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid password",
     ),
+    "please_select_a_payment_method": MessageLookupByLibrary.simpleMessage(
+      "Please select a payment method",
+    ),
     "product": MessageLookupByLibrary.simpleMessage("Product"),
+    "product_is_added_to_cart": MessageLookupByLibrary.simpleMessage(
+      "Product is added to cart",
+    ),
+    "product_is_removed_from_cart": MessageLookupByLibrary.simpleMessage(
+      "Product is removed from cart",
+    ),
     "products": MessageLookupByLibrary.simpleMessage("Products"),
     "products_view": MessageLookupByLibrary.simpleMessage("Products screen"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
@@ -145,11 +195,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "resource_exhausted": MessageLookupByLibrary.simpleMessage(
       "The resource limit has been exceeded",
     ),
+    "results": MessageLookupByLibrary.simpleMessage("Results"),
     "search_and_shop": MessageLookupByLibrary.simpleMessage("Search and Shop"),
     "search_for": MessageLookupByLibrary.simpleMessage("Search for ..."),
     "see_all": MessageLookupByLibrary.simpleMessage("See All"),
     "service_unavailable": MessageLookupByLibrary.simpleMessage(
       "The service is currently unavailable",
+    ),
+    "shipping": MessageLookupByLibrary.simpleMessage("Shipping: "),
+    "shipping_address": MessageLookupByLibrary.simpleMessage(
+      "Shipping Address: ",
     ),
     "shop_now": MessageLookupByLibrary.simpleMessage("Shop Now"),
     "sign_in_now": MessageLookupByLibrary.simpleMessage("Sign In Now"),
@@ -165,6 +220,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "storage_quota_exceeded": MessageLookupByLibrary.simpleMessage(
       "The storage quota has been exceeded",
     ),
+    "subtitle": MessageLookupByLibrary.simpleMessage("Subtotal: "),
+    "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
     "terms_and_conditions": MessageLookupByLibrary.simpleMessage(
       "Terms and Conditions",
     ),
@@ -173,6 +230,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "Too many attempts. Please try again later",
     ),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "unexpected_error": MessageLookupByLibrary.simpleMessage(
       "An unexpected error occurred. Please try again",
     ),
@@ -191,5 +249,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrong_password": MessageLookupByLibrary.simpleMessage(
       "The password is incorrect",
     ),
+    "you_have": MessageLookupByLibrary.simpleMessage("You have"),
   };
 }

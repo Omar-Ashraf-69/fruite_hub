@@ -93,5 +93,47 @@
   "cart": "Cart",
   "profile": "Profile",
   "products": "Products",
-  "product": "Product"
+
+
+
+  "checkout": "Checkout",
+  "next": "next",
+  "pay_with_paypal": "Pay with PayPal",
+  "product": "Product",
+  "fruits": "Fruits",
+  "results": "Results",
+  "payment": "Payment",
+  "pay": "Pay",
+  "subtotal": "Subtotal",
+  "checkout_completed": "Checkout Completed",
+  "please_select_a_payment_method": "Please select a payment method",
+  "you_have":"You have",
+  "items_in_cart":"items in cart",
+  "total":"Total",
+
+  "product_is_added_to_cart":"Product is added to cart",
+  "product_is_removed_from_cart":"Product is removed from cart",
+  "cart_is_empty":"Cart is empty",
+
+
+  "order_summary": "Order Summary: ",
+  "subtitle": "Subtotal: ",
+  "shipping": "Shipping: ",
+  "shipping_address": "Shipping Address: ",
+  "edit": "Edit",
+
+  "no_products_found": "No products found",
+  "full_name": "Full Name",
+  "email": "Email",
+  "phone": "Phone",
+  "address": "Address",
+  "city": "City",
+  "floor": "Floor",
+  "cach_on_delivery": "Cash on Delivery",
+  "pay_when_you_receive": "Pay when you receive your order",
+  "free":  "Free",
+  "credit_debit_card": "Credit/Debit Card",
+  "pay_with_your_card": "Pay with your credit/debit card",
+  "order_placed_successfully": "Order placed successfully",
+  "order_placed_successfully_message": "Your order has been placed successfully. You will receive an email with your order details."
 }

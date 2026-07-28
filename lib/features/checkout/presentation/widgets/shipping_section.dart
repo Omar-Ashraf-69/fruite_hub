@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/enums/payment_method.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
-import 'package:fruit_hub/features/checkout/domain/entities/payment_method.dart';
 import 'package:fruit_hub/features/checkout/presentation/cubit/checkout_cubit.dart';
 import 'package:fruit_hub/features/checkout/presentation/widgets/payment_section_options.dart';
 import 'package:fruit_hub/generated/l10n.dart';

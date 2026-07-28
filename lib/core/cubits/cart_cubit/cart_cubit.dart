@@ -18,4 +18,9 @@ class CartCubit extends Cubit<CartState> {
     cart.removeProduct(code);
     emit(CartItemRemoved());
   }
+
+  void clearCart() {
+    cart.clearCart();
+    emit(CartCleared());
+  }
 }

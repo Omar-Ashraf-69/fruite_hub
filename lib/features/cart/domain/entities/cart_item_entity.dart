@@ -16,7 +16,7 @@ class CartItemEntity extends Equatable {
     counter--;
   }
 
-  num productPrice() {
+  double productPrice() {
     return product.price * counter;
   }
 

@@ -85,7 +85,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   void _goToStep(int index) {
     setState(() => currentPageIndex = index);
+    FocusScope.of(context).unfocus();
 
+    FocusManager.instance.primaryFocus?.unfocus();
     pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 300),
@@ -111,6 +113,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     if (!addressSectionKey.currentState!.validateAndSave()) {
       return;
     }
+    FocusScope.of(context).unfocus();
     _goToNextPage();
   }
 
@@ -119,7 +122,6 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       showSankBar(context);
       return;
     }
-
     _goToNextPage();
   }
 }

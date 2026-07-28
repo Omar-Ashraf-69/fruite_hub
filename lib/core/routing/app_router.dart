@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/di/dependecny_injection.dart';
+import 'package:fruit_hub/core/repos/add_product/add_order_repo.dart';
 import 'package:fruit_hub/core/routing/app_routes.dart';
 import 'package:fruit_hub/features/auth/core/domain/repos/auth_repo.dart';
 import 'package:fruit_hub/features/auth/features/login/presentation/cubit/login_cubit.dart';
@@ -41,7 +42,10 @@ class AppRouter {
         final checkoutData = settings.arguments as CartEntity;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => CheckoutCubit(cart: checkoutData),
+            create: (context) => CheckoutCubit(
+              cart: checkoutData,
+              ordersRepo: getIt<AddOrderRepo>(),
+            ),
             child: const CheckoutView(),
           ),
         );

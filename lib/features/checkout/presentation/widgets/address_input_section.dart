@@ -40,7 +40,7 @@ class AddressInputSectionState extends State<AddressInputSection> {
               hintText: S.of(context).full_name,
               controller: controllers.fullName,
               keyboardType: TextInputType.text,
-              validator: (value)  =>
+              validator: (value) =>
                   validator(value, S.of(context).full_name, context),
             ),
             verticalSpace(12),
@@ -64,7 +64,7 @@ class AddressInputSectionState extends State<AddressInputSection> {
               hintText: S.of(context).city,
               controller: controllers.city,
               keyboardType: TextInputType.text,
-              validator:  (value) =>
+              validator: (value) =>
                   validator(value, S.of(context).city, context),
             ),
             verticalSpace(12),
@@ -72,7 +72,8 @@ class AddressInputSectionState extends State<AddressInputSection> {
               hintText: S.of(context).floor,
               controller: controllers.floor,
               keyboardType: TextInputType.numberWithOptions(),
-              validator:  (value) =>
+              onFieldSubmitted: (value) => FocusScope.of(context).unfocus(),
+              validator: (value) =>
                   validator(value, S.of(context).floor, context),
             ),
             verticalSpace(12),
@@ -80,7 +81,7 @@ class AddressInputSectionState extends State<AddressInputSection> {
               hintText: S.of(context).phone,
               keyboardType: TextInputType.phone,
               controller: controllers.phone,
-              validator:  (value) =>
+              validator: (value) =>
                   validator(value, S.of(context).phone, context),
               textInputAction: TextInputAction.done,
               onFieldSubmitted: (value) => FocusScope.of(context).unfocus(),
@@ -91,7 +92,6 @@ class AddressInputSectionState extends State<AddressInputSection> {
       ),
     );
   }
-
 
   bool validateAndSave() {
     if (!addressFormKey.currentState!.validate()) {

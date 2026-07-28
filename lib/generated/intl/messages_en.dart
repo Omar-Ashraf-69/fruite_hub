@@ -122,6 +122,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_internet_connection_message": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection and try again",
     ),
+    "no_products_found": MessageLookupByLibrary.simpleMessage(
+      "No products found",
+    ),
     "offer": MessageLookupByLibrary.simpleMessage("Offer"),
     "on_boarding_title_1": MessageLookupByLibrary.simpleMessage(
       "Discover a unique shopping experience with FruitHUB. Explore our wide selection of premium fresh fruits and get the best offers and high quality.",

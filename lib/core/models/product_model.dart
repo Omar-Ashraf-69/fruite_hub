@@ -7,7 +7,7 @@ class ProductModel {
   final String name;
   final String code;
   final String description;
-  final num price;
+  final double price;
 
   final bool isFeatured;
   final num sellingCount;

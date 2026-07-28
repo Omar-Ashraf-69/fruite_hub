@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:fruit_hub/features/checkout/domain/entities/checkout_step.dart';
+import 'package:fruit_hub/core/enums/checkout_step.dart';
 import 'package:fruit_hub/features/checkout/presentation/widgets/checkout_step.dart';
 
 class CheckoutStepper extends StatelessWidget {

@@ -5,8 +5,8 @@ class CartEntity {
 
   CartEntity({required this.items});
 
-  int totalPrice() {
-    int total = 0;
+  double totalPrice() {
+    double total = 0;
     for (var item in items) {
       total += item.productPrice().toInt();
     }
@@ -39,5 +39,8 @@ class CartEntity {
         return;
       }
     }
+  }
+  void clearCart() {
+    items.clear();
   }
 }

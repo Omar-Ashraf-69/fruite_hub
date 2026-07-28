@@ -875,6 +875,16 @@ class S {
     return Intl.message('Edit', name: 'edit', desc: '', args: []);
   }
 
+  /// `No products found`
+  String get no_products_found {
+    return Intl.message(
+      'No products found',
+      name: 'no_products_found',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Full Name`
   String get full_name {
     return Intl.message('Full Name', name: 'full_name', desc: '', args: []);

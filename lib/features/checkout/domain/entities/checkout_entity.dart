@@ -1,6 +1,6 @@
+import 'package:fruit_hub/core/enums/payment_method.dart';
 import 'package:fruit_hub/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/address_entity.dart';
-import 'package:fruit_hub/features/checkout/domain/entities/payment_method.dart';
 
 class CheckoutEntity {
   final CartEntity cart;
